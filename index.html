@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Система управления санаторием — Bibi Rayhan</title>
+
+<!-- ====== ПРЕВЬЮ ССЫЛКИ (WhatsApp, Telegram, Facebook, LinkedIn) ======
+     Адрес страницы: https://issatayski.github.io/bibiraykhan/
+     Файл og-preview.png (1200x630) кладём в корень репозитория bibiraykhan, рядом с index.html.
+     Проверка превью: developers.facebook.com/tools/debug/ -->
+<meta name="description" content="Бронирование, лечение, процедуры, питание, CRM и кабинет гостя — единая система санатория.">
+<meta name="theme-color" content="#13322e">
+<link rel="canonical" href="https://issatayski.github.io/bibiraykhan/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bibi Rayhan — система управления">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://issatayski.github.io/bibiraykhan/">
+<meta property="og:title" content="Система управления санаторием — Bibi Rayhan">
+<meta property="og:description" content="Бронирование, лечение, процедуры, питание, CRM и кабинет гостя — единая система санатория.">
+<meta property="og:image" content="https://issatayski.github.io/bibiraykhan/og-preview.png">
+<meta property="og:image:secure_url" content="https://issatayski.github.io/bibiraykhan/og-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Система управления санаторием Bibi Rayhan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Система управления санаторием — Bibi Rayhan">
+<meta name="twitter:description" content="Бронирование, лечение, процедуры, питание, CRM и кабинет гостя — единая система санатория.">
+<meta name="twitter:image" content="https://issatayski.github.io/bibiraykhan/og-preview.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c9a227'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='24' font-weight='bold' fill='%23fff' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --sb:#13322e; --sb2:#0e2724; --sb-act:#c9a227;
+  --acc:#12897a; --acc-d:#0c6a5e; --acc-l:#e4f3f0;
+  --bg:#eff3f2; --card:#ffffff; --line:#e0e8e6;
+  --tx:#1e332f; --mut:#7b8b87; --mut2:#98a7a3;
+  --gr:#2c9e5b; --gr-l:#e8f6ed;
+  --or:#c9a227; --or-l:#faf2dd;
+  --rd:#d9534f; --rd-l:#fbeceb;
+  --vi:#6b64bf; --vi-l:#eeedfa;
+  --rad:6px; --sh:0 1px 3px rgba(19,50,46,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;max-width:100%;overflow-x:hidden}
+body{font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--tx);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
+svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* SIDEBAR */
+.sb{position:fixed;top:0;left:0;bottom:0;width:242px;background:var(--sb);color:#c3d4d0;display:flex;flex-direction:column;z-index:40}
+.sb .logo{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb .logo b{color:#fff;font-size:15px;letter-spacing:.2px;display:block}
+.sb .logo span{font-size:11px;color:#849894}
+.logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(140deg,#dcb943,#a8811a);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;font-family:Georgia,serif}
+.sb nav{flex:1;overflow-y:auto;padding:10px 0}
+.sb .grp{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:#63807b;padding:14px 18px 6px}
+.sb a.item{display:flex;align-items:center;gap:11px;padding:9px 18px;font-size:13.5px;color:#bccecb;border-left:3px solid transparent;cursor:pointer}
+.sb a.item:hover{background:var(--sb2);color:#fff}
+.sb a.item.act{background:var(--sb2);color:#fff;border-left-color:var(--sb-act)}
+.sb a.item .cnt{margin-left:auto;background:rgba(255,255,255,.12);border-radius:10px;padding:1px 7px;font-size:11px}
+.sb a.item .cnt.warn{background:var(--rd);color:#fff}
+.sb .who{padding:12px 18px;border-top:1px solid rgba(255,255,255,.07);font-size:12px;color:#849894}
+.sb .who b{display:block;color:#fff;font-size:13px;font-weight:600}
+
+/* TOPBAR */
+.main{margin-left:242px;min-height:100%;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:12px;padding:0 20px;height:56px;max-width:100%;overflow:hidden}
+.top .tt{min-width:0;flex:1 1 auto;overflow:hidden}
+.top h1{font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .sub{font-size:12px;color:var(--mut);margin-left:2px}
+.spacer{flex:1}
+.rolebox{display:flex;align-items:center;gap:8px;background:var(--acc-l);border:1px solid #c6e3de;border-radius:var(--rad);padding:5px 8px}
+.rolebox label{font-size:11px;color:var(--acc-d);text-transform:uppercase;letter-spacing:.5px}
+.rolebox select{border:0;background:transparent;font-weight:600;color:var(--acc-d);outline:none;cursor:pointer}
+.icobtn{width:36px;height:36px;border:1px solid var(--line);background:#fff;border-radius:var(--rad);display:flex;align-items:center;justify-content:center;color:var(--mut);cursor:pointer;position:relative}
+.icobtn:hover{color:var(--acc);border-color:#c6e3de}
+.icobtn .dot{position:absolute;top:6px;right:7px;width:7px;height:7px;background:var(--rd);border-radius:50%}
+.ava{width:34px;height:34px;border-radius:50%;background:var(--vi-l);color:var(--vi);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+
+/* CONTENT */
+.wrap{padding:18px 20px 28px;flex:1}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.col{flex:1 1 320px;min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);margin-bottom:14px;overflow:hidden}
+.card>.hd{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.card>.hd h3{font-size:14px;font-weight:600}
+.card>.hd .mini{font-size:12px;color:var(--mut)}
+.card>.bd{padding:14px}
+.card>.bd.tight{padding:0}
+.note{background:var(--or-l);border:1px solid #eddfb2;border-radius:var(--rad);padding:11px 13px;font-size:13px;margin-bottom:14px;display:flex;gap:9px;align-items:flex-start;color:#6f5a12}
+.note svg{width:17px;height:17px;margin-top:1px}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:14px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:var(--rad);padding:13px 14px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.kpi .lb{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px}
+.kpi .vl{font-size:23px;font-weight:700;margin-top:6px;letter-spacing:-.4px}
+.kpi .df{font-size:12px;margin-top:4px;color:var(--mut)}
+.kpi .df.up{color:var(--gr)} .kpi .df.dn{color:var(--rd)}
+.kpi .ic{position:absolute;right:12px;top:12px;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--acc-l);color:var(--acc)}
+.kpi.g .ic{background:var(--gr-l);color:var(--gr)} .kpi.o .ic{background:var(--or-l);color:#a7871a}
+.kpi.r .ic{background:var(--rd-l);color:var(--rd)} .kpi.v .ic{background:var(--vi-l);color:var(--vi)}
+
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);text-align:left;
+   padding:10px 12px;background:#f5f9f8;border-bottom:1px solid var(--line);white-space:nowrap;font-weight:600}
+td{padding:11px 12px;border-bottom:1px solid #eef3f2;vertical-align:middle}
+tbody tr:hover{background:#f8fbfa}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td .m{color:var(--mut);font-size:12px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+
+.bdg{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:3px 9px;border-radius:20px;white-space:nowrap;font-weight:500}
+.bdg.g{background:var(--gr-l);color:#1d7844} .bdg.o{background:var(--or-l);color:#8a6f10}
+.bdg.r{background:var(--rd-l);color:#a83a37} .bdg.b{background:var(--acc-l);color:var(--acc-d)}
+.bdg.v{background:var(--vi-l);color:var(--vi)} .bdg.n{background:#eef3f2;color:var(--mut)}
+
+.btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--acc);background:var(--acc);color:#fff;
+  padding:8px 14px;border-radius:var(--rad);cursor:pointer;font-weight:500;font-size:13.5px}
+.btn:hover{background:var(--acc-d);border-color:var(--acc-d)}
+.btn.gh{background:#fff;color:var(--tx);border-color:var(--line)}
+.btn.gh:hover{background:#f4f8f7;color:var(--acc);border-color:#c6e3de}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.btn.gr{background:var(--gr);border-color:var(--gr)} .btn.gr:hover{background:#238049;border-color:#238049}
+.btn.gd{background:var(--or);border-color:var(--or)} .btn.gd:hover{background:#ab8a1c;border-color:#ab8a1c}
+.btn svg{width:16px;height:16px}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.inp{border:1px solid var(--line);background:#fff;border-radius:var(--rad);padding:8px 11px;outline:none;min-width:0;max-width:100%}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(18,137,122,.13)}
+select.inp{cursor:pointer}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:12px;color:var(--mut);margin-bottom:5px}
+.field .inp{width:100%}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.bars{display:flex;align-items:flex-end;gap:8px;height:150px;padding-top:8px}
+.bars .b{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%}
+.bars .b i{display:block;width:100%;max-width:34px;background:linear-gradient(180deg,#46b5a5,var(--acc));border-radius:3px 3px 0 0}
+.bars .b i.alt{background:linear-gradient(180deg,#e0c665,var(--or))}
+.bars .b span{font-size:11px;color:var(--mut)}
+.leg{display:flex;gap:14px;font-size:12px;color:var(--mut);margin-top:10px}
+.leg i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:5px}
+
+.pipe{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+.pipe .st{flex:1 0 190px;background:#f5f9f8;border:1px solid var(--line);border-radius:var(--rad);padding:10px}
+.pipe .st>h4{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);display:flex;justify-content:space-between;margin-bottom:9px}
+.pipe .cd{background:#fff;border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:4px;padding:9px 10px;margin-bottom:8px;box-shadow:var(--sh);cursor:pointer}
+.pipe .cd b{font-size:13px;display:block}
+.pipe .cd .m{font-size:11.5px;color:var(--mut);margin-top:3px}
+.pipe .cd.warn{border-left-color:var(--or)} .pipe .cd.done{border-left-color:var(--gr)} .pipe .cd.lost{border-left-color:var(--rd)}
+
+.list .it{display:flex;align-items:center;gap:11px;padding:11px 14px;border-bottom:1px solid #eef3f2}
+.list .it:last-child{border-bottom:0}
+.list .it .ic{width:34px;height:34px;border-radius:8px;background:var(--acc-l);color:var(--acc);display:flex;align-items:center;justify-content:center}
+.list .it .ic.o{background:var(--or-l);color:#a7871a} .list .it .ic.r{background:var(--rd-l);color:var(--rd)}
+.list .it .ic.g{background:var(--gr-l);color:var(--gr)} .list .it .ic.v{background:var(--vi-l);color:var(--vi)}
+.list .it .tx b{display:block;font-size:13.5px}
+.list .it .tx span{font-size:12px;color:var(--mut)}
+.list .it .rt{margin-left:auto;text-align:right;white-space:nowrap}
+
+.prog{height:7px;background:#eef3f2;border-radius:5px;overflow:hidden;min-width:90px}
+.prog i{display:block;height:100%;background:var(--acc);border-radius:5px}
+.prog i.g{background:var(--gr)} .prog i.o{background:var(--or)} .prog i.r{background:var(--rd)}
+
+.empty{padding:34px 16px;text-align:center;color:var(--mut)}
+.empty b{display:block;color:var(--tx);margin-bottom:4px}
+
+/* ШАХМАТКА */
+.grid-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.shah{border-collapse:separate;border-spacing:0;min-width:720px}
+.shah th{position:sticky;top:0;z-index:2}
+.shah td.rm,.shah th.rm{position:sticky;left:0;background:#fff;z-index:3;border-right:1px solid var(--line);min-width:120px}
+.shah th.rm{background:#f5f9f8;z-index:4}
+.shah td{padding:0;height:38px;border-bottom:1px solid #eef3f2;border-right:1px solid #f2f6f5}
+.cell{height:36px;margin:1px;border-radius:4px;display:flex;align-items:center;padding:0 7px;font-size:11.5px;color:#fff;white-space:nowrap;overflow:hidden;cursor:pointer}
+.cell.free{background:#f5f9f8;color:var(--mut2);border:1px dashed #dbe5e3;justify-content:center}
+.cell.occ{background:var(--acc)} .cell.res{background:#6b64bf} .cell.out{background:var(--or);color:#3d3105}
+.cell.cln{background:#c9d4d1;color:#54635f} .cell.blk{background:var(--rd)}
+
+/* КАЛЕНДАРЬ ПРОЦЕДУР */
+.tl{display:flex;gap:0;font-size:11px;min-width:640px}
+.tl .h{flex:0 0 118px}
+.tl .slot{flex:1;text-align:center;color:var(--mut);border-left:1px solid var(--line);padding:5px 0}
+.tlrow{display:flex;min-width:640px;border-top:1px solid var(--line);align-items:stretch}
+.tlrow .h{flex:0 0 118px;padding:9px;font-size:12.5px;display:flex;flex-direction:column;justify-content:center;background:#f5f9f8}
+.tlrow .h span{font-size:11px;color:var(--mut)}
+.tlrow .lane{flex:1;border-left:1px solid var(--line);padding:3px;min-height:46px}
+.chip{background:var(--acc-l);border:1px solid #bfe0da;border-left:3px solid var(--acc);border-radius:4px;padding:4px 6px;font-size:11.5px;cursor:pointer;line-height:1.3}
+.chip b{display:block;font-size:11.5px}
+.chip span{color:var(--mut);font-size:10.5px}
+.chip.o{background:var(--or-l);border-color:#e8d59a;border-left-color:var(--or)}
+.chip.g{background:var(--gr-l);border-color:#bfe4cc;border-left-color:var(--gr)}
+.chip.v{background:var(--vi-l);border-color:#cfcbef;border-left-color:var(--vi)}
+
+/* КАРТОЧКИ ГОСТЯ / ДОСТАВКИ */
+.dcard{border:1px solid var(--line);border-radius:var(--rad);padding:13px;margin-bottom:11px;background:#fff;box-shadow:var(--sh)}
+.dcard .t{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.dcard .t b{font-size:14.5px}
+.dcard .adr{font-size:13px;color:var(--mut);display:flex;gap:7px;align-items:flex-start;margin-bottom:9px}
+.dcard .ln{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:5px 0;border-top:1px dashed var(--line)}
+.dcard .acts{display:flex;gap:8px;margin-top:11px}
+.dcard .acts .btn{flex:1;justify-content:center}
+
+/* MODAL & SHEET */
+.ov{position:fixed;inset:0;background:rgba(15,35,32,.5);z-index:60;display:none;align-items:center;justify-content:center;padding:16px}
+.ov.on{display:flex}
+.mdl{background:#fff;border-radius:8px;width:100%;max-width:560px;max-height:88vh;overflow:auto;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.mdl .h{display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}
+.mdl .h h3{font-size:15px;font-weight:600;flex:1}
+.mdl .b{padding:16px}
+.mdl .f{padding:12px 16px;border-top:1px solid var(--line);display:flex;gap:9px;justify-content:flex-end;background:#f5f9f8;position:sticky;bottom:0}
+.x{border:0;background:transparent;color:var(--mut);cursor:pointer;padding:4px}
+.drop{border:1.5px dashed #c5d5d1;border-radius:var(--rad);padding:18px;text-align:center;color:var(--mut);font-size:13px;cursor:pointer;background:#fafcfb}
+.drop:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-l)}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:86px;background:#1e332f;color:#fff;padding:11px 18px;border-radius:22px;font-size:13.5px;z-index:80;opacity:0;pointer-events:none;transition:.25s;max-width:90vw;text-align:center}
+.toast.on{opacity:1;bottom:100px}
+
+/* MOBILE */
+.bnav{display:none}
+@media(max-width:900px){
+  .sb{display:none}
+  .main{margin-left:0}
+  .top{padding:0 12px;height:52px}
+  .top h1{font-size:15.5px}
+  .top .sub{display:none}
+  .rolebox label{display:none}
+  .wrap{padding:12px 12px calc(78px + env(safe-area-inset-bottom));max-width:100vw;overflow-x:hidden}
+  .row{gap:0}
+  .col{flex:1 1 100%}
+  .card,.kpi{max-width:100%}
+  .filters{gap:7px}
+  .filters .inp{flex:1 1 100%;width:100%}
+  .filters .btn{flex:1 1 100%;justify-content:center}
+  .rolebox{padding:4px 6px}
+  .rolebox select{max-width:126px}
+  .kpi .lb{font-size:10.5px}
+  .kpi .df{font-size:11px}
+  .bars{height:120px;gap:4px}
+  .bars .b span{font-size:9.5px}
+  .card>.hd{padding:11px 12px;flex-wrap:wrap}
+  .card>.hd h3{font-size:13.5px}
+  .card>.bd{padding:12px}
+  .pipe{gap:8px}
+  .pipe .st{flex:0 0 78%}
+  .dcard .acts{flex-wrap:wrap}
+  .dcard .ln b{text-align:right;overflow-wrap:anywhere}
+  .list .it{padding:10px 12px}
+  .list .it .tx{min-width:0}
+  .list .it .tx b,.list .it .tx span{overflow-wrap:anywhere}
+  .leg{flex-wrap:wrap;gap:8px}
+  .kpis{grid-template-columns:repeat(2,1fr);gap:9px}
+  .kpi .vl{font-size:18px;overflow-wrap:anywhere} .kpi .ic{display:none}
+  .f2{grid-template-columns:1fr}
+  th,td{padding:9px 10px}
+  .bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;
+    border-top:1px solid var(--line);padding:6px 2px calc(6px + env(safe-area-inset-bottom));
+    box-shadow:0 -2px 12px rgba(19,50,46,.08)}
+  .bnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--mut2);font-size:10.5px;padding:4px 2px;cursor:pointer;position:relative}
+  .bnav a.act{color:var(--acc)}
+  .bnav a svg{width:22px;height:22px}
+  .bnav a span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .bnav a .cnt{position:absolute;top:0;right:50%;margin-right:-20px;background:var(--rd);color:#fff;font-size:9.5px;border-radius:9px;padding:0 5px;line-height:15px}
+  .sheet{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:14px 14px 0 0;z-index:70;
+    transform:translateY(102%);transition:.24s;padding-bottom:calc(14px + env(safe-area-inset-bottom));max-height:82vh;overflow:auto}
+  .sheet.on{transform:translateY(0)}
+  .sheet .gr{width:38px;height:4px;background:#d8e2df;border-radius:3px;margin:9px auto 4px}
+  .sheet .st{padding:12px 16px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--mut)}
+  .sheet a{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid #f0f4f3;font-size:14.5px}
+  .sheet a .ic{color:var(--acc)}
+  .sheet a .cnt{margin-left:auto;background:var(--rd);color:#fff;font-size:11px;border-radius:10px;padding:1px 7px}
+  .mdl{max-width:100%;border-radius:12px}
+  .hide-m{display:none!important}
+}
+@media(min-width:901px){ .sheet{display:none} .only-m{display:none!important} }
+</style>
+</head>
+<body>
+
+<aside class="sb">
+  <div class="logo">
+    <div class="logo-mark">BR</div>
+    <div><b>Bibi Rayhan</b><span>Medical Resort &amp; Spa · Сарыагаш</span></div>
+  </div>
+  <nav id="sbnav"></nav>
+  <div class="who" id="sbwho"></div>
+</aside>
+
+<div class="main">
+  <header class="top">
+    <div class="tt">
+      <h1 id="pgTitle">Дашборд</h1>
+      <div class="sub" id="pgSub"></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="rolebox">
+      <label>Роль</label>
+      <select id="roleSel" onchange="setRole(this.value)">
+        <option value="boss">Руководство</option>
+        <option value="admin">Служба размещения</option>
+        <option value="doctor">Врач</option>
+        <option value="nurse">Процедурный кабинет</option>
+        <option value="manager">Отдел продаж</option>
+        <option value="chef">Кухня</option>
+        <option value="guest">Гость</option>
+      </select>
+    </div>
+    <button class="icobtn hide-m" aria-label="Уведомления" onclick="alertsModal()"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 6-2 7-2 7h16s-2-1-2-7"/><path d="M13.7 19a2 2 0 0 1-3.4 0"/></svg><span class="dot"></span></button>
+    <div class="ava hide-m" id="ava">СӘ</div>
+  </header>
+  <div class="wrap" id="content"></div>
+</div>
+
+<nav class="bnav" id="bnav"></nav>
+
+<div class="sheet" id="sheet">
+  <div class="gr"></div>
+  <div class="st" id="sheetTitle">Ещё разделы</div>
+  <div id="sheetItems"></div>
+</div>
+<div class="ov" id="sheetOv" onclick="closeSheet()" style="z-index:65"></div>
+
+<div class="ov" id="modalOv">
+  <div class="mdl">
+    <div class="h"><h3 id="mTitle">Форма</h3><button class="x" onclick="closeModal()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="b" id="mBody"></div>
+    <div class="f">
+      <button class="btn gh" onclick="closeModal()">Отмена</button>
+      <button class="btn" id="mSave" onclick="saveModal()">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==================== ИКОНКИ ==================== */
+const I = {
+  home:'<path d="M3 10.6L12 3.4l9 7.2V21H3z"/><path d="M9.5 21v-6h5v6"/>',
+  bed:'<path d="M3 18v-8h13a4 4 0 0 1 4 4v4"/><path d="M3 14h17M3 18v2M20 18v2"/><path d="M6.6 10V7.4h5.8V10"/>',
+  cal:'<path d="M4 5.6h16V21H4z"/><path d="M4 10h16M8.6 3v4M15.4 3v4"/>',
+  med:'<path d="M6 3.4v5.2a5 5 0 0 0 10 0V3.4"/><path d="M4.4 3.4h3.2M14.4 3.4h3.2"/><path d="M11 13.4v2.4a4 4 0 0 0 8 0v-1"/><path d="M19 9.6a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/>',
+  proc:'<path d="M2.6 12h4l2-5 3.4 10 2.6-7 1.8 2h5"/>',
+  food:'<path d="M5 3v8a2.4 2.4 0 0 0 4.8 0V3M7.4 11v10"/><path d="M17.4 3c-1.8 1-2.8 3-2.8 5.6 0 1.8.8 3 2.2 3.4V21"/>',
+  crm:'<path d="M3.4 5h17.2l-6.6 7.6V20l-4-2.2v-5.2z"/>',
+  money:'<path d="M12 3.4v17.2"/><path d="M16.4 7.2c-.8-1.3-2.4-2-4.4-2-2.6 0-4.2 1.2-4.2 3s1.6 2.6 4.2 3.2c2.8.6 4.6 1.4 4.6 3.4s-1.9 3.2-4.6 3.2c-2.3 0-4-.8-4.8-2.2"/>',
+  rep:'<path d="M4 20V10.4M10 20V4M16 20v-7.2M21.6 20H2.4"/>',
+  usr:'<path d="M12 11.6a3.6 3.6 0 1 0 0-7.2 3.6 3.6 0 0 0 0 7.2z"/><path d="M4.4 20.4c0-3.6 3.4-6.4 7.6-6.4s7.6 2.8 7.6 6.4"/>',
+  team:'<path d="M8.6 11.4a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8z"/><path d="M2.4 20c0-3.2 2.8-5.8 6.2-5.8s6.2 2.6 6.2 5.8"/><path d="M16.4 5.2a3 3 0 0 1 0 5.9M17.6 14.6c2.4.6 4 2.6 4 5.4"/>',
+  set:'<path d="M4 7h16M4 12h16M4 17h16"/><path d="M9 7a1.4 1.4 0 1 0 0-.1M16 12a1.4 1.4 0 1 0 0-.1M8 17a1.4 1.4 0 1 0 0-.1"/>',
+  clock:'<path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M12 7.4V12l3 1.8"/>',
+  check:'<path d="M20 6.6L9.4 17.2 4 11.8"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  more:'<path d="M12 6.6a1.2 1.2 0 1 0 0-.1M12 12.2a1.2 1.2 0 1 0 0-.1M12 17.8a1.2 1.2 0 1 0 0-.1"/>',
+  web:'<path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M3.2 9.6h17.6M3.2 14.4h17.6"/><path d="M12 3c-2.6 2.4-3.8 5.4-3.8 9s1.2 6.6 3.8 9c2.6-2.4 3.8-5.4 3.8-9S14.6 5.4 12 3z"/>',
+  drop:'<path d="M12 3.4s6 6.6 6 10.6a6 6 0 0 1-12 0c0-4 6-10.6 6-10.6z"/>',
+  spa:'<path d="M12 21c4.4-2 7-5.6 7-9.6"/><path d="M12 21c-4.4-2-7-5.6-7-9.6"/><path d="M12 21V9.4"/><path d="M12 9.4c0-3.4 1.6-5.6 4-6.4.6 3-.8 5.6-4 6.4z"/><path d="M12 11.6C10.4 9 8.2 8 5.6 8.4c.4 2.8 2.6 4.4 6.4 3.2z"/>',
+  card:'<path d="M3 6.6h18V18H3z"/><path d="M3 10.4h18M6.4 14.6h3.4"/>',
+  doc:'<path d="M6 3.4h8.4L19 8v12.6H6z"/><path d="M14 3.4V8h5M9 12.4h6M9 16h4.6"/>',
+  box:'<path d="M20.4 7.6l-8.4-4.4-8.4 4.4v8.8l8.4 4.4 8.4-4.4z"/><path d="M3.6 7.6l8.4 4.4 8.4-4.4M12 12v9"/>',
+  phone:'<path d="M15.6 21C8.6 21 3 15.4 3 8.4V5.4A2 2 0 0 1 5 3.4h2.2l1.4 4-2 1.6a12.6 12.6 0 0 0 6.4 6.4l1.6-2 4 1.4V19a2 2 0 0 1-2 2z"/>',
+  star:'<path d="M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.6 9.7l5.8-.8z"/>',
+  bell:'<path d="M18 8a6 6 0 1 0-12 0c0 6-2 7-2 7h16s-2-1-2-7"/><path d="M13.7 19a2 2 0 0 1-3.4 0"/>',
+  qr:'<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 14h2.6v2.6H14zM17.4 17.4H20V20h-2.6z"/>',
+  bus:'<path d="M4 6.4h16V16H4z"/><path d="M4 11h16M7.4 19.6V16M16.6 19.6V16M2.6 6.4h18.8"/>',
+  dl:'<path d="M12 3.6v11M7.6 10.2L12 14.6l4.4-4.4"/><path d="M4 17.4v2.2h16v-2.2"/>',
+  warn:'<path d="M12 3.6L1.8 20.4h20.4z"/><path d="M12 9.6v5M12 17.6v.1"/>'
+};
+function ic(k){return `<svg viewBox="0 0 24 24">${I[k]||I.home}</svg>`}
+const F = n => (n||0).toLocaleString('ru-RU');
+const T = n => F(n)+' ₸';
+
+/* ==================== ДАННЫЕ ==================== */
+const DATE='29 августа 2026';
+
+const ROOMS=[
+  {n:'201',t:'Deluxe',cap:2},{n:'202',t:'Deluxe',cap:2},{n:'203',t:'Deluxe',cap:2},
+  {n:'204',t:'Deluxe Premium',cap:2},{n:'301',t:'Deluxe Premium',cap:3},
+  {n:'302',t:'Luxe',cap:3},{n:'314',t:'Luxe',cap:3},
+  {n:'401',t:'Luxe Premium',cap:4},{n:'402',t:'VIP',cap:4},{n:'403',t:'VIP',cap:4}
+];
+const SHAH={
+  '201':['occ','occ','occ','out','free','free','res'],
+  '202':['occ','occ','occ','occ','occ','occ','occ'],
+  '203':['cln','res','res','res','res','res','res'],
+  '204':['occ','occ','out','cln','res','res','res'],
+  '301':['occ','occ','occ','occ','occ','occ','out'],
+  '302':['free','free','res','res','res','res','res'],
+  '314':['occ','occ','occ','occ','occ','occ','occ'],
+  '401':['occ','occ','occ','occ','out','free','res'],
+  '402':['blk','blk','free','res','res','res','res'],
+  '403':['occ','occ','occ','occ','occ','out','free']
+};
+const SHNAMES={occ:'Проживает',res:'Бронь',out:'Выезд',cln:'Уборка',blk:'Ремонт',free:'Свободно'};
+
+const PROGRAMS=[
+  {k:'gkt',t:'Желудочно-кишечный тракт',d:'Гастрит, колит, печень и желчный',days:'7 / 10 / 14',price:34000,cnt:11},
+  {k:'sus',t:'Суставной комплекс',d:'Артроз, артрит, скованность',days:'10 / 14',price:36500,cnt:9},
+  {k:'diab',t:'Сахарный диабет',d:'2 тип, обмен веществ, лишний вес',days:'10 / 14 / 21',price:38000,cnt:6},
+  {k:'det',t:'Детокс и долголетие',d:'Очищение, регенерация, энергия',days:'7 / 10',price:42000,cnt:8},
+  {k:'anti',t:'Антистресс',d:'Сон, тревожность, выгорание',days:'5 / 7 / 10',price:39500,cnt:5},
+  {k:'gen',t:'Общий оздоровительный',d:'Иммунитет, усталость, ЖКТ',days:'7 / 10 / 14',price:31000,cnt:13}
+];
+
+const CABS=['Ванный зал №1','Ванный зал №2','Физиокабинет','Массаж №1','Массаж №2','Бювет минводы','Галокамера','ЛФК-зал','Бассейн'];
+
+const GUESTS=[
+  {id:'П-2418',fio:'Айна Серікова',room:'314',prog:'gkt',day:'4 из 10',dr:'Оспанов Н.',out:'04.09',src:'Instagram',sum:340000,paid:340000},
+  {id:'П-2419',fio:'Марат Бекжанов',room:'202',prog:'sus',day:'6 из 14',dr:'Оспанов Н.',out:'06.09',src:'WhatsApp',sum:511000,paid:300000},
+  {id:'П-2420',fio:'Гүлмира Сәрсенова',room:'301',prog:'det',day:'2 из 7',dr:'Ахметова Р.',out:'03.09',src:'Сайт',sum:294000,paid:294000},
+  {id:'П-2421',fio:'Ержан Тлеубаев',room:'401',prog:'diab',day:'9 из 14',dr:'Оспанов Н.',out:'03.09',src:'Рекомендация',sum:532000,paid:532000},
+  {id:'П-2422',fio:'Сабина Абдуллаева',room:'403',prog:'anti',day:'1 из 7',dr:'Ахметова Р.',out:'04.09',src:'Instagram',sum:276500,paid:150000},
+  {id:'П-2423',fio:'Нурлан Оралбай',room:'201',prog:'gen',day:'5 из 7',dr:'Ахметова Р.',out:'31.08',src:'Повторный',sum:217000,paid:217000},
+  {id:'П-2424',fio:'Зухра Юсупова',room:'204',prog:'gkt',day:'3 из 10',dr:'Оспанов Н.',out:'05.09',src:'Узбекистан, агент',sum:340000,paid:200000}
+];
+const PRG = k => (PROGRAMS.find(p=>p.k===k)||{}).t||'—';
+
+const LEADS=[
+  {st:'Новый',items:[
+    {n:'Асель Кайрат',m:'Instagram · direct',d:'ЖКТ, 10 дней, сентябрь'},
+    {n:'Дильшод Рахимов',m:'WhatsApp · Ташкент',d:'Семья 4 чел, VIP'},
+    {n:'Айгерим Н.',m:'Сайт · форма брони',d:'Deluxe, 2 чел, 12–19.09'}
+  ]},
+  {st:'Консультация врача',items:[
+    {n:'Бақыт Сүлеймен',m:'Звонок',d:'Диабет 2 тип, подбор курса',w:1},
+    {n:'Ольга Пак',m:'Instagram',d:'Антистресс, 7 дней'}
+  ]},
+  {st:'Счёт выставлен',items:[
+    {n:'ТОО «Алтын Дән»',m:'Корпоратив',d:'12 человек, конференц-зал',w:1},
+    {n:'Санжар Ермек',m:'Рекомендация',d:'Суставы, Luxe, 14 дней'}
+  ]},
+  {st:'Оплачено',items:[
+    {n:'Гүлнәр Досжан',m:'Сайт · Kaspi',d:'Детокс 7 дней · 294 000 ₸',ok:1},
+    {n:'Ерлан Абиш',m:'WhatsApp',d:'ЖКТ 10 дней · 340 000 ₸',ok:1}
+  ]},
+  {st:'Отказ',items:[
+    {n:'Роман Ким',m:'Сайт',d:'Дорого, ушёл к конкуренту',bad:1}
+  ]}
+];
+
+const WEBREQ=[
+  {id:'WB-1187',fio:'Айгерим Нурланова',room:'Deluxe',dt:'12.09 – 19.09',ppl:2,sum:476000,pay:'Kaspi · предоплата 30%',st:'Оплачено'},
+  {id:'WB-1186',fio:'Дильшод Рахимов',room:'VIP',dt:'05.09 – 12.09',ppl:4,sum:1120000,pay:'Ожидает оплаты',st:'Бронь'},
+  {id:'WB-1185',fio:'Ольга Пак',room:'Luxe',dt:'01.09 – 08.09',ppl:1,sum:298000,pay:'Halyk · полностью',st:'Оплачено'},
+  {id:'WB-1184',fio:'Санжар Ермек',room:'Luxe Premium',dt:'15.09 – 29.09',ppl:2,sum:889000,pay:'Счёт отправлен',st:'Новая'},
+  {id:'WB-1183',fio:'Мадина Ж.',room:'Deluxe',dt:'30.08 – 06.09',ppl:2,sum:434000,pay:'Отменено гостем',st:'Отмена'}
+];
+
+const SCHED=[
+  {cab:'Ванный зал №1',sub:'2 ванны',slots:[
+    {t:'08:00',g:'Серікова А.',p:'Минеральная ванна',c:''},
+    {t:'09:00',g:'Бекжанов М.',p:'Минеральная ванна',c:'g'},
+    {t:'10:00',g:'',p:'',c:''},
+    {t:'11:00',g:'Тлеубаев Е.',p:'Минеральная ванна',c:''},
+    {t:'12:00',g:'Юсупова З.',p:'Минеральная ванна',c:'o'}
+  ]},
+  {cab:'Физиокабинет',sub:'магнит, электрофорез',slots:[
+    {t:'08:00',g:'Оралбай Н.',p:'Магнитотерапия',c:'g'},
+    {t:'09:00',g:'Тлеубаев Е.',p:'Электрофорез',c:'g'},
+    {t:'10:00',g:'Бекжанов М.',p:'Магнитотерапия',c:''},
+    {t:'11:00',g:'',p:'',c:''},
+    {t:'12:00',g:'Сәрсенова Г.',p:'Электрофорез',c:''}
+  ]},
+  {cab:'Массаж №1',sub:'Ахметова Г.',slots:[
+    {t:'08:00',g:'',p:'',c:''},
+    {t:'09:00',g:'Абдуллаева С.',p:'Массаж спины',c:'v'},
+    {t:'10:00',g:'Серікова А.',p:'Общий массаж',c:'v'},
+    {t:'11:00',g:'Оралбай Н.',p:'Массаж воротник.',c:'v'},
+    {t:'12:00',g:'',p:'',c:''}
+  ]},
+  {cab:'Бювет минводы',sub:'приём по графику',slots:[
+    {t:'08:00',g:'12 гостей',p:'Минводa 200 мл',c:'g'},
+    {t:'09:00',g:'',p:'',c:''},
+    {t:'10:00',g:'',p:'',c:''},
+    {t:'11:00',g:'9 гостей',p:'Минводa 200 мл',c:''},
+    {t:'12:00',g:'',p:'',c:''}
+  ]},
+  {cab:'Галокамера',sub:'сеанс 40 мин',slots:[
+    {t:'08:00',g:'',p:'',c:''},
+    {t:'09:00',g:'Группа 6 чел',p:'Сеанс',c:'g'},
+    {t:'10:00',g:'Группа 5 чел',p:'Сеанс',c:''},
+    {t:'11:00',g:'',p:'',c:''},
+    {t:'12:00',g:'Группа 4 чел',p:'Сеанс',c:''}
+  ]}
+];
+
+const DIETS=[
+  {n:'Стол №1 · щадящий',d:'ЖКТ, гастрит',cnt:11},
+  {n:'Стол №5 · печень',d:'Печень, желчный',cnt:7},
+  {n:'Стол №9 · диабет',d:'Без сахара, контроль углеводов',cnt:6},
+  {n:'Стол №15 · общий',d:'Без ограничений',cnt:19},
+  {n:'Вегетарианский',d:'По запросу гостя',cnt:2},
+  {n:'Без глютена',d:'Аллергия',cnt:1}
+];
+
+const STOCK=[
+  {n:'Говядина охлаждённая',u:'кг',q:64,min:40,pr:3200},
+  {n:'Курица, филе',u:'кг',q:38,min:35,pr:2450},
+  {n:'Рыба, судак',u:'кг',q:12,min:20,pr:3900},
+  {n:'Овощи сезонные',u:'кг',q:210,min:120,pr:420},
+  {n:'Крупы (рис, гречка, овёс)',u:'кг',q:96,min:60,pr:680},
+  {n:'Молочная группа',u:'л',q:74,min:80,pr:520},
+  {n:'Фрукты',u:'кг',q:88,min:70,pr:940},
+  {n:'Масло растительное',u:'л',q:26,min:30,pr:1150}
+];
+
+const SRC=[
+  {n:'Instagram',lead:64,deal:19,rev:5320000,cost:420000},
+  {n:'WhatsApp (прямые)',lead:41,deal:17,rev:4780000,cost:0},
+  {n:'Сайт bibirayhan.kz',lead:28,deal:9,rev:2640000,cost:180000},
+  {n:'Агенты Узбекистан',lead:22,deal:11,rev:3410000,cost:511500},
+  {n:'Повторные и рекомендации',lead:19,deal:14,rev:4120000,cost:0},
+  {n:'TikTok',lead:17,deal:3,rev:820000,cost:140000}
+];
+
+const STAFF=[
+  {f:'Сәкен Әлікбай',p:'Директор',r:'Полный доступ',st:'Активен'},
+  {f:'Айгүл Тұрсынова',p:'Администратор',r:'Размещение, касса',st:'Активен'},
+  {f:'Нұрлан Оспанов',p:'Гастроэнтеролог',r:'Мед. карта, назначения',st:'Активен'},
+  {f:'Раушан Ахметова',p:'Реабилитолог',r:'Мед. карта, назначения',st:'Активен'},
+  {f:'Гүлнар Ахметова',p:'Медсестра, процедурная',r:'Расписание, отметки',st:'Активен'},
+  {f:'Диас Кенжебек',p:'Менеджер продаж',r:'CRM, лиды, счета',st:'Активен'},
+  {f:'Мурат Ибрагимов',p:'Шеф-повар',r:'Питание, склад продуктов',st:'Активен'},
+  {f:'Жанат Оспан',p:'Горничная, 3 этаж',r:'Уборка номеров',st:'Отпуск'}
+];
+
+/* ==================== ОБЩИЕ БЛОКИ ==================== */
+function tbl(head,rows){return `<div class="tw"><table><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`}
+function kpi(lb,vl,df,cls,icn){return `<div class="kpi ${cls||''}"><div class="ic">${ic(icn||'home')}</div><div class="lb">${lb}</div><div class="vl">${vl}</div><div class="df ${df&&df[0]==='+'?'up':(df&&df[0]==='−'?'dn':'')}">${df||''}</div></div>`}
+function hint(t){return `<div class="note">${ic('warn')}<div>${t}</div></div>`}
+
+/* ==================== СТРАНИЦЫ ==================== */
+const P={};
+
+/* ---------- РУКОВОДСТВО ---------- */
+P.dash=()=>`
+${hint('<b>Это демонстрационный макет.</b> Данные условные. Любой пункт меню можно открыть, роли переключаются вверху справа.')}
+<div class="kpis">
+  ${kpi('Загрузка корпуса','78 %','+6 % к прошлой неделе','g','bed')}
+  ${kpi('Гостей в корпусе','41','из 52 мест','','team')}
+  ${kpi('Средний чек путёвки','389 000 ₸','+4,2 % к августу 2025','o','money')}
+  ${kpi('Выручка августа','21 090 000 ₸','план 19 500 000 ₸','v','rep')}
+</div>
+<div class="row">
+  <div class="col" style="flex:2 1 460px">
+    <div class="card"><div class="hd"><h3>Загрузка по дням</h3><div class="spacer"></div><span class="mini">последние 7 дней</span></div>
+      <div class="bd">
+        <div class="bars">
+          ${[62,68,71,74,80,84,78].map((v,i)=>`<div class="b"><i style="height:${v}%"></i><span>${['23','24','25','26','27','28','29'][i]}.08</span></div>`).join('')}
+        </div>
+        <div class="leg"><span><i style="background:var(--acc)"></i>Занято номеров, %</span></div>
+      </div>
+    </div>
+    <div class="card"><div class="hd"><h3>Заезды и выезды сегодня</h3><div class="spacer"></div><button class="btn sm gh" onclick="go('arr')">Открыть</button></div>
+      <div class="bd tight"><div class="list">
+        <div class="it"><div class="ic g">${ic('bed')}</div><div class="tx"><b>Заезд · 6 гостей</b><span>3 путёвки, из них 1 трансфер из Шымкента</span></div><div class="rt"><span class="bdg g">до 14:00</span></div></div>
+        <div class="it"><div class="ic o">${ic('bus')}</div><div class="tx"><b>Выезд · 4 гостя</b><span>Номера 301, 403 — на уборку</span></div><div class="rt"><span class="bdg o">до 12:00</span></div></div>
+        <div class="it"><div class="ic r">${ic('warn')}</div><div class="tx"><b>Долг по путёвке П-2419</b><span>Бекжанов М. — не хватает 211 000 ₸</span></div><div class="rt"><button class="btn sm gh" onclick="toast('Открыт счёт путёвки П-2419')">Счёт</button></div></div>
+        <div class="it"><div class="ic">${ic('web')}</div><div class="tx"><b>4 заявки с сайта не обработаны</b><span>Старейшая — 19 часов назад</span></div><div class="rt"><button class="btn sm" onclick="go('crm')">В CRM</button></div></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card"><div class="hd"><h3>Программы лечения</h3><div class="spacer"></div><span class="mini">гостей сейчас</span></div>
+      <div class="bd tight"><div class="list">
+        ${PROGRAMS.map(p=>`<div class="it"><div class="ic">${ic('med')}</div><div class="tx"><b>${p.t}</b><span>${p.days} дней · от ${T(p.price)}</span></div><div class="rt"><b>${p.cnt}</b></div></div>`).join('')}
+      </div></div>
+    </div>
+    <div class="card"><div class="hd"><h3>Откуда пришли гости</h3></div>
+      <div class="bd">
+        ${SRC.slice(0,5).map(s=>`<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${s.n}</span><b>${s.deal}</b></div><div class="prog"><i style="width:${s.deal*5}%"></i></div></div>`).join('')}
+      </div>
+    </div>
+  </div>
+</div>`;
+
+P.rep=()=>`
+<div class="filters">
+  <select class="inp"><option>Август 2026</option><option>Июль 2026</option><option>II полугодие 2026</option></select>
+  <select class="inp"><option>Все программы</option>${PROGRAMS.map(p=>`<option>${p.t}</option>`).join('')}</select>
+  <button class="btn gh" onclick="toast('Экспорт отчёта в Excel')">${ic('dl')} Выгрузить</button>
+</div>
+<div class="kpis">
+  ${kpi('Доход на номер (RevPAR)','303 400 ₸','+9,1 %','g','money')}
+  ${kpi('Средняя цена ночи (ADR)','389 000 ₸','+4,2 %','','money')}
+  ${kpi('Средняя длительность','9,4 дня','+0,6 дня','o','clock')}
+  ${kpi('Доля повторных гостей','23 %','+5 п.п.','v','star')}
+</div>
+<div class="card"><div class="hd"><h3>Выручка по направлениям, август</h3></div><div class="bd">
+  <div class="bars">
+    ${[{n:'Путёвки',v:88},{n:'SPA',v:34},{n:'Ресторан',v:22},{n:'Экскурсии',v:14},{n:'Конференц',v:9},{n:'Трансфер',v:6}].map(x=>`<div class="b"><i class="${x.v>50?'':'alt'}" style="height:${x.v}%"></i><span>${x.n}</span></div>`).join('')}
+  </div>
+</div></div>
+<div class="card"><div class="hd"><h3>Эффективность каналов</h3></div>
+${tbl('<th>Канал</th><th class="num">Лидов</th><th class="num">Продаж</th><th class="num">Конверсия</th><th class="num">Выручка</th><th class="num">Затраты</th><th class="num">Цена лида</th>',
+ SRC.map(s=>`<tr><td><b>${s.n}</b></td><td class="num">${s.lead}</td><td class="num">${s.deal}</td>
+ <td class="num"><span class="bdg ${s.deal/s.lead>0.5?'g':(s.deal/s.lead>0.3?'b':'o')}">${Math.round(s.deal/s.lead*100)} %</span></td>
+ <td class="num">${T(s.rev)}</td><td class="num">${s.cost?T(s.cost):'—'}</td><td class="num">${s.cost?T(Math.round(s.cost/s.lead)):'—'}</td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Загрузка процедурных кабинетов, август</h3></div><div class="bd">
+  ${[['Ванный зал №1',92],['Ванный зал №2',86],['Физиокабинет',74],['Массаж №1',81],['Массаж №2',58],['Бювет минводы',96],['Галокамера',44],['Бассейн',88]].map(([n,v])=>
+    `<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${n}</span><b>${v} %</b></div><div class="prog"><i class="${v>90?'r':(v>75?'':'g')}" style="width:${v}%"></i></div></div>`).join('')}
+  <div style="font-size:12px;color:var(--mut);margin-top:12px">Красным — кабинеты на пределе. Здесь видно, где нужен второй специалист или дополнительное оборудование.</div>
+</div></div>`;
+
+P.usr=()=>`
+<div class="filters"><input class="inp" placeholder="Поиск по фамилии" style="flex:1 1 220px">
+<button class="btn" onclick="staffModal()">${ic('plus')} Добавить сотрудника</button></div>
+<div class="card">
+${tbl('<th>Сотрудник</th><th>Должность</th><th>Права в системе</th><th>Статус</th><th></th>',
+ STAFF.map(s=>`<tr><td><b>${s.f}</b></td><td>${s.p}</td><td class="m">${s.r}</td>
+ <td><span class="bdg ${s.st==='Активен'?'g':'n'}">${s.st}</span></td>
+ <td class="num"><button class="btn sm gh" onclick="toast('Права: ${s.f}')">Права</button></td></tr>`).join(''))}
+</div>`;
+
+P.set=()=>`
+<div class="row">
+  <div class="col"><div class="card"><div class="hd"><h3>Номерной фонд и тарифы</h3><div class="spacer"></div><button class="btn sm" onclick="toast('Форма тарифа')">${ic('plus')}</button></div>
+  ${tbl('<th>Категория</th><th class="num">Мест</th><th class="num">Низкий сезон</th><th class="num">Высокий сезон</th>',
+   [['Deluxe',2,29000,34000],['Deluxe Premium',3,34000,39000],['Luxe',3,38000,44000],['Luxe Premium',4,46000,53000],['VIP',4,62000,74000]]
+   .map(r=>`<tr><td><b>${r[0]}</b></td><td class="num">${r[1]}</td><td class="num">${T(r[2])}</td><td class="num">${T(r[3])}</td></tr>`).join(''))}
+  </div></div>
+  <div class="col"><div class="card"><div class="hd"><h3>Программы лечения</h3><div class="spacer"></div><button class="btn sm" onclick="toast('Конструктор программы')">${ic('plus')}</button></div>
+  ${tbl('<th>Программа</th><th>Длительность</th><th class="num">Цена / сутки</th>',
+   PROGRAMS.map(p=>`<tr><td><b>${p.t}</b><div class="m">${p.d}</div></td><td>${p.days} дн.</td><td class="num">${T(p.price)}</td></tr>`).join(''))}
+  </div></div>
+</div>
+<div class="card"><div class="hd"><h3>Справочник процедур</h3></div>
+${tbl('<th>Процедура</th><th>Кабинет</th><th class="num">Длит.</th><th class="num">Мест за сеанс</th><th class="num">Цена вне путёвки</th>',
+ [['Минеральная ванна','Ванный зал',20,2,4500],['Кишечное орошение','Ванный зал №2',30,1,7000],
+  ['Циркулярный душ','Ванный зал №1',15,1,3500],['Магнитотерапия','Физиокабинет',20,3,3000],
+  ['Электрофорез','Физиокабинет',20,3,3200],['Общий массаж','Массаж №1',45,1,9000],
+  ['Приём минводы','Бювет',10,30,0],['Галотерапия','Галокамера',40,8,4000],
+  ['ЛФК групповая','ЛФК-зал',45,12,0],['Бассейн минеральный','Бассейн',45,20,0]]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="num">${r[2]} мин</td><td class="num">${r[3]}</td><td class="num">${r[4]?T(r[4]):'в путёвке'}</td></tr>`).join(''))}
+</div>`;
+
+/* ---------- РАЗМЕЩЕНИЕ ---------- */
+P.shah=()=>`
+${hint('Шахматка — главный экран администратора. Цвет показывает состояние номера, нажатие открывает бронь.')}
+<div class="filters">
+  <select class="inp"><option>Все категории</option><option>Deluxe</option><option>Luxe</option><option>VIP</option></select>
+  <input class="inp" type="date" value="2026-08-29">
+  <button class="btn" onclick="bookModal()">${ic('plus')} Новая бронь</button>
+</div>
+<div class="card"><div class="bd tight"><div class="grid-x">
+<table class="shah"><thead><tr><th class="rm">Номер</th>
+${['29.08','30.08','31.08','01.09','02.09','03.09','04.09'].map(d=>`<th class="num" style="text-align:center">${d}</th>`).join('')}</tr></thead>
+<tbody>${ROOMS.map(r=>`<tr><td class="rm"><b>${r.n}</b><div class="m">${r.t}</div></td>
+${SHAH[r.n].map((s,i)=>`<td><div class="cell ${s}" onclick="cellModal('${r.n}','${s}')">${s==='free'?'+':SHNAMES[s]}</div></td>`).join('')}</tr>`).join('')}</tbody></table>
+</div></div></div>
+<div class="card"><div class="bd" style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut)">
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--acc);margin-right:5px"></i>Проживает</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:#6b64bf;margin-right:5px"></i>Бронь</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--or);margin-right:5px"></i>Выезд</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:#c9d4d1;margin-right:5px"></i>Уборка</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--rd);margin-right:5px"></i>Ремонт</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:#f5f9f8;border:1px dashed #dbe5e3;margin-right:5px"></i>Свободно</span>
+</div></div>`;
+
+P.arr=()=>`
+<div class="kpis">
+  ${kpi('Заезд сегодня','6','3 путёвки','g','bed')}
+  ${kpi('Выезд сегодня','4','2 номера на уборку','o','bus')}
+  ${kpi('Свободно на завтра','5','из 10 номеров','','home')}
+  ${kpi('Трансфер заказан','2','Шымкент аэропорт','v','bus')}
+</div>
+<div class="card"><div class="hd"><h3>Заезд · 29 августа</h3></div>
+${tbl('<th>Гость</th><th>Номер</th><th>Программа</th><th>Трансфер</th><th>Оплата</th><th></th>',
+ [['Дильшод Рахимов + 3','402 VIP','Общий оздоровительный','Ташкент, авто','Предоплата 30 %','wait'],
+  ['Ольга Пак','302 Luxe','Антистресс','Не нужен','Оплачено полностью','ok'],
+  ['Гүлнәр Досжан','203 Deluxe','Детокс и долголетие','Шымкент, аэропорт 15:40','Оплачено полностью','ok']]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="m">${r[2]}</td><td class="m">${r[3]}</td>
+ <td><span class="bdg ${r[5]==='ok'?'g':'o'}">${r[4]}</span></td>
+ <td class="num"><button class="btn sm gr" onclick="checkinModal('${r[0]}')">Заселить</button></td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Выезд · 29 августа</h3></div>
+${tbl('<th>Гость</th><th>Номер</th><th>Долг</th><th>Обратный трансфер</th><th></th>',
+ [['Ержан Тлеубаев','401','—','Шымкент вокзал 13:00'],
+  ['Гүлмира Сәрсенова','301','—','Не нужен'],
+  ['Нурлан Оралбай','201','—','Сарыагаш вокзал 11:20'],
+  ['Зухра Юсупова','204','140 000 ₸','Ташкент, агент']]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td>
+ <td>${r[2]==='—'?'<span class="bdg g">Нет</span>':`<span class="bdg r">${r[2]}</span>`}</td>
+ <td class="m">${r[3]}</td><td class="num"><button class="btn sm gh" onclick="toast('Выезд оформлен: ${r[0]}')">Выписать</button></td></tr>`).join(''))}
+</div>`;
+
+P.book=()=>`
+<div class="filters">
+  <input class="inp" placeholder="Поиск: гость, номер путёвки, телефон" style="flex:1 1 240px">
+  <select class="inp"><option>Все статусы</option><option>Проживает</option><option>Бронь</option><option>Выехал</option></select>
+  <button class="btn" onclick="bookModal()">${ic('plus')} Новая путёвка</button>
+</div>
+<div class="card">
+${tbl('<th>Путёвка</th><th>Гость</th><th>Номер</th><th>Программа</th><th>День</th><th>Выезд</th><th class="num">Сумма</th><th>Оплата</th>',
+ GUESTS.map(g=>`<tr onclick="guestModal('${g.id}')" style="cursor:pointer">
+ <td><b>${g.id}</b><div class="m">${g.src}</div></td><td><b>${g.fio}</b></td><td>${g.room}</td>
+ <td class="m">${PRG(g.prog)}</td><td>${g.day}</td><td>${g.out}</td><td class="num">${T(g.sum)}</td>
+ <td>${g.paid>=g.sum?'<span class="bdg g">Оплачено</span>':`<span class="bdg r">Долг ${F(g.sum-g.paid)}</span>`}</td></tr>`).join(''))}
+</div>`;
+
+P.cash=()=>`
+<div class="kpis">
+  ${kpi('Касса за сегодня','1 240 000 ₸','8 операций','g','money')}
+  ${kpi('Kaspi / карта','870 000 ₸','70 % платежей','','card')}
+  ${kpi('Дебиторка','351 000 ₸','2 путёвки','r','warn')}
+  ${kpi('Доп. услуги за день','186 500 ₸','SPA, ресторан, экскурсии','o','spa')}
+</div>
+<div class="card"><div class="hd"><h3>Операции за 29 августа</h3><div class="spacer"></div><button class="btn sm" onclick="payModal()">${ic('plus')} Принять оплату</button></div>
+${tbl('<th>Время</th><th>Путёвка / гость</th><th>Назначение</th><th>Способ</th><th class="num">Сумма</th>',
+ [['08:42','П-2420 · Сәрсенова Г.','Доплата за путёвку','Kaspi QR',94000],
+  ['09:15','П-2422 · Абдуллаева С.','Предоплата','Карта Halyk',150000],
+  ['10:30','Разовый гость','SPA: хаммам + массаж','Наличные',26000],
+  ['11:05','П-2419 · Бекжанов М.','Ресторан, a la carte','На счёт номера',12400],
+  ['12:20','WB-1187 · Нурланова А.','Онлайн-бронь, сайт','Kaspi онлайн',142800],
+  ['14:10','П-2424 · Юсупова З.','Экскурсия Туркестан','Наличные',18000],
+  ['16:35','П-2421 · Тлеубаев Е.','Финальный расчёт','Карта',532000],
+  ['17:50','Корпоратив «Алтын Дән»','Конференц-зал, аванс','Безнал, счёт',264800]]
+ .map(r=>`<tr><td class="m">${r[0]}</td><td><b>${r[1]}</b></td><td class="m">${r[2]}</td><td><span class="bdg b">${r[3]}</span></td><td class="num"><b>${T(r[4])}</b></td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Долги по путёвкам</h3></div>
+${tbl('<th>Путёвка</th><th>Гость</th><th>Выезд</th><th class="num">Сумма</th><th class="num">Оплачено</th><th class="num">Долг</th><th></th>',
+ GUESTS.filter(g=>g.paid<g.sum).map(g=>`<tr><td><b>${g.id}</b></td><td>${g.fio}</td><td>${g.out}</td>
+ <td class="num">${T(g.sum)}</td><td class="num">${T(g.paid)}</td><td class="num"><b style="color:var(--rd)">${T(g.sum-g.paid)}</b></td>
+ <td class="num"><button class="btn sm gd" onclick="toast('Напоминание отправлено в WhatsApp: ${g.fio}')">Напомнить</button></td></tr>`).join(''))}
+</div>`;
+
+P.guests=()=>`
+<div class="filters"><input class="inp" placeholder="Поиск по фамилии или номеру" style="flex:1 1 220px">
+<select class="inp"><option>Все этажи</option><option>2 этаж</option><option>3 этаж</option><option>4 этаж</option></select></div>
+${GUESTS.map(g=>`<div class="dcard">
+ <div class="t"><b>${g.fio}</b><span class="bdg b">Номер ${g.room}</span><div class="spacer" style="flex:1"></div><span class="bdg ${g.paid>=g.sum?'g':'r'}">${g.paid>=g.sum?'Оплачено':'Долг'}</span></div>
+ <div class="adr">${ic('med')} <span>${PRG(g.prog)} · день ${g.day} · врач ${g.dr}</span></div>
+ <div class="ln"><span>Выезд</span><b>${g.out}</b></div>
+ <div class="ln"><span>Источник</span><b>${g.src}</b></div>
+ <div class="acts"><button class="btn gh" onclick="guestModal('${g.id}')">Карта гостя</button>
+ <button class="btn" onclick="toast('Открыто расписание процедур: ${g.fio}')">Процедуры</button></div>
+</div>`).join('')}`;
+
+/* ---------- ВРАЧ ---------- */
+P.recep=()=>`
+${hint('Врач видит только своих гостей на приём. Назначения сразу попадают в расписание процедурных кабинетов.')}
+<div class="kpis">
+  ${kpi('Приём сегодня','7','2 первичных','','med')}
+  ${kpi('Осмотрено','4','осталось 3','g','check')}
+  ${kpi('Курсов на контроле','18','промежуточный осмотр','o','doc')}
+  ${kpi('Корректировок курса','2','по самочувствию','v','warn')}
+</div>
+<div class="card"><div class="hd"><h3>Приём · 29 августа</h3></div>
+${tbl('<th>Время</th><th>Гость</th><th>Номер</th><th>Тип приёма</th><th>Программа</th><th></th>',
+ [['09:00','Дильшод Рахимов','402','Первичный','Общий оздоровительный','wait'],
+  ['09:30','Айна Серікова','314','Промежуточный','ЖКТ','done'],
+  ['10:00','Марат Бекжанов','202','Промежуточный','Суставной комплекс','done'],
+  ['10:30','Зухра Юсупова','204','Первичный','ЖКТ','done'],
+  ['11:00','Ержан Тлеубаев','401','Заключительный','Сахарный диабет','done'],
+  ['14:00','Ольга Пак','302','Первичный','Антистресс','wait'],
+  ['14:30','Гүлнәр Досжан','203','Первичный','Детокс и долголетие','wait']]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td><b>${r[1]}</b></td><td>${r[2]}</td>
+ <td><span class="bdg ${r[3]==='Первичный'?'b':(r[3]==='Заключительный'?'v':'n')}">${r[3]}</span></td>
+ <td class="m">${r[4]}</td>
+ <td class="num">${r[5]==='done'?'<span class="bdg g">Осмотрен</span>':`<button class="btn sm" onclick="assignModal('${r[1]}')">Принять</button>`}</td></tr>`).join(''))}
+</div>`;
+
+P.cards=()=>`
+<div class="filters"><input class="inp" placeholder="Поиск гостя" style="flex:1 1 220px">
+<select class="inp"><option>Все программы</option>${PROGRAMS.map(p=>`<option>${p.t}</option>`).join('')}</select></div>
+<div class="card">
+${tbl('<th>Гость</th><th>Номер</th><th>Программа</th><th>День курса</th><th>Динамика</th><th></th>',
+ GUESTS.map((g,i)=>{const pr=[70,43,29,64,14,71,30][i];return `<tr><td><b>${g.fio}</b><div class="m">${g.id}</div></td><td>${g.room}</td>
+ <td class="m">${PRG(g.prog)}</td><td>${g.day}</td>
+ <td><div class="prog" style="width:110px"><i class="${pr>60?'g':''}" style="width:${pr}%"></i></div></td>
+ <td class="num"><button class="btn sm gh" onclick="cardModal('${g.fio}')">Карта</button></td></tr>`}).join(''))}
+</div>`;
+
+P.assign=()=>`
+${hint('Конструктор курса: врач отмечает процедуры и кратность — система сама раскладывает их по свободным слотам кабинетов.')}
+<div class="card"><div class="hd"><h3>Назначения · Айна Серікова, номер 314</h3><div class="spacer"></div><span class="bdg b">ЖКТ · день 4 из 10</span></div>
+${tbl('<th>Процедура</th><th>Кабинет</th><th>Кратность</th><th>Выполнено</th><th>Статус</th><th></th>',
+ [['Минеральная ванна','Ванный зал №1','Ежедневно',4,10],
+  ['Приём минводы 200 мл','Бювет','3 раза в день',12,30],
+  ['Кишечное орошение','Ванный зал №2','Через день',2,5],
+  ['Общий массаж','Массаж №1','Через день',2,5],
+  ['ЛФК групповая','ЛФК-зал','Ежедневно',4,10],
+  ['Бассейн минеральный','Бассейн','Ежедневно',3,10]]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td class="m">${r[1]}</td><td>${r[2]}</td>
+ <td class="num">${r[3]} / ${r[4]}</td>
+ <td><div class="prog" style="width:100px"><i class="${r[3]/r[4]>0.6?'g':''}" style="width:${Math.round(r[3]/r[4]*100)}%"></i></div></td>
+ <td class="num"><button class="btn sm gh" onclick="toast('Изменение назначения: ${r[0]}')">Изменить</button></td></tr>`).join(''))}
+<div class="bd" style="border-top:1px solid var(--line);display:flex;gap:9px;flex-wrap:wrap">
+  <button class="btn" onclick="assignModal('Айна Серікова')">${ic('plus')} Добавить процедуру</button>
+  <button class="btn gh" onclick="toast('Курс отправлен в расписание кабинетов')">Пересобрать расписание</button>
+  <button class="btn gh" onclick="toast('Печать листа назначений')">Печать листа</button>
+</div>
+</div>
+<div class="card"><div class="hd"><h3>Противопоказания и отметки</h3></div><div class="bd tight"><div class="list">
+  <div class="it"><div class="ic r">${ic('warn')}</div><div class="tx"><b>Гипертония 1 ст.</b><span>Ограничение по температуре ванны — не выше 38 °C</span></div></div>
+  <div class="it"><div class="ic o">${ic('warn')}</div><div class="tx"><b>Непереносимость лактозы</b><span>Передано на кухню, стол №1 без молочного</span></div></div>
+  <div class="it"><div class="ic g">${ic('check')}</div><div class="tx"><b>Осмотр 27.08</b><span>Жалобы уменьшились, курс без изменений</span></div></div>
+</div></div></div>`;
+
+P.progA=()=>`
+<div class="card"><div class="hd"><h3>Шесть профильных программ</h3><div class="spacer"></div><span class="mini">состав курса и загрузка</span></div>
+${tbl('<th>Программа</th><th>Кому</th><th>Длительность</th><th class="num">Цена/сутки</th><th class="num">Гостей</th><th></th>',
+ PROGRAMS.map(p=>`<tr><td><b>${p.t}</b></td><td class="m">${p.d}</td><td>${p.days} дн.</td>
+ <td class="num">${T(p.price)}</td><td class="num">${p.cnt}</td>
+ <td class="num"><button class="btn sm gh" onclick="toast('Состав курса: ${p.t}')">Состав</button></td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Минеральная вода Сарыагаш · лечебный фактор</h3></div><div class="bd">
+  <div class="kpis" style="margin-bottom:0">
+    ${kpi('Температура источника','51 °C','высокотермальная','o','drop')}
+    ${kpi('Минерализация','0,9 г/л','слабая, для курсового приёма','','drop')}
+    ${kpi('Тип воды','HCO₃—Na','гидрокарбонатно-натриевая','g','drop')}
+  </div>
+  <div style="font-size:13px;color:var(--mut);margin-top:12px">Норма приёма задаётся в назначениях: объём, кратность и время до еды. Бювет отмечает фактический приём по QR-карте гостя.</div>
+</div></div>`;
+
+/* ---------- ПРОЦЕДУРНЫЙ КАБИНЕТ ---------- */
+P.sched=()=>`
+${hint('Расписание строится автоматически из назначений врачей. Медсестра отмечает выполнение — врач сразу видит динамику.')}
+<div class="filters">
+  <input class="inp" type="date" value="2026-08-29">
+  <select class="inp"><option>Все кабинеты</option>${CABS.map(c=>`<option>${c}</option>`).join('')}</select>
+  <button class="btn gh" onclick="toast('Печать расписания на день')">Печать</button>
+</div>
+<div class="card"><div class="bd tight"><div class="grid-x">
+  <div class="tl"><div class="h" style="padding:6px 9px;font-weight:600">Кабинет</div>
+  ${['08:00','09:00','10:00','11:00','12:00'].map(t=>`<div class="slot">${t}</div>`).join('')}</div>
+  ${SCHED.map(c=>`<div class="tlrow"><div class="h"><b>${c.cab}</b><span>${c.sub}</span></div>
+   ${c.slots.map(s=>`<div class="lane">${s.g?`<div class="chip ${s.c}" onclick="procModal('${s.g}','${s.p}','${s.t}')"><b>${s.g}</b><span>${s.p}</span></div>`:''}</div>`).join('')}
+  </div>`).join('')}
+</div></div></div>
+<div class="card"><div class="hd"><h3>Легенда</h3></div><div class="bd" style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut)">
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--gr);margin-right:5px"></i>Выполнено</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--acc);margin-right:5px"></i>Запланировано</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--or);margin-right:5px"></i>Гость не пришёл</span>
+  <span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--vi);margin-right:5px"></i>Платная, вне путёвки</span>
+</div></div>`;
+
+P.cab=()=>`
+<div class="kpis">
+  ${kpi('Сеансов сегодня','148','по 9 кабинетам','','proc')}
+  ${kpi('Выполнено','96','65 %','g','check')}
+  ${kpi('Неявки','7','гости не пришли','r','warn')}
+  ${kpi('Свободных слотов','23','можно продать платно','o','plus')}
+</div>
+<div class="card"><div class="hd"><h3>Загрузка кабинетов сегодня</h3></div>
+${tbl('<th>Кабинет</th><th>Специалист</th><th class="num">План</th><th class="num">Выполнено</th><th>Загрузка</th><th></th>',
+ [['Ванный зал №1','Ахметова Г.',22,16],['Ванный зал №2','Сейітова А.',18,12],
+  ['Физиокабинет','Нурланова Ж.',24,17],['Массаж №1','Ахметова Г.',12,8],
+  ['Массаж №2','Оспан Ж.',12,5],['Бювет минводы','дежурная',34,26],
+  ['Галокамера','Нурланова Ж.',10,6],['ЛФК-зал','Тұрар Б.',8,4],['Бассейн','дежурная',18,12]]
+ .map(r=>{const v=Math.round(r[3]/r[2]*100);return `<tr><td><b>${r[0]}</b></td><td class="m">${r[1]}</td>
+ <td class="num">${r[2]}</td><td class="num">${r[3]}</td>
+ <td><div class="prog" style="width:110px"><i class="${v>80?'g':(v>50?'':'o')}" style="width:${v}%"></i></div></td>
+ <td class="num"><button class="btn sm gh" onclick="go('sched')">Слоты</button></td></tr>`}).join(''))}
+</div>`;
+
+P.doneN=()=>`
+<div class="filters"><input class="inp" placeholder="Поиск гостя или QR-карты" style="flex:1 1 220px">
+<button class="btn" onclick="toast('Сканер QR-карты гостя')">${ic('qr')} Сканировать карту</button></div>
+${[['08:00','Айна Серікова','Минеральная ванна','Ванный зал №1','done'],
+   ['09:00','Марат Бекжанов','Минеральная ванна','Ванный зал №1','done'],
+   ['09:00','Сабина Абдуллаева','Массаж спины','Массаж №1','done'],
+   ['10:00','Айна Серікова','Общий массаж','Массаж №1','wait'],
+   ['11:00','Ержан Тлеубаев','Минеральная ванна','Ванный зал №1','wait'],
+   ['11:00','Нурлан Оралбай','Массаж воротниковой зоны','Массаж №1','wait'],
+   ['12:00','Зухра Юсупова','Минеральная ванна','Ванный зал №1','miss']]
+ .map(r=>`<div class="dcard">
+ <div class="t"><b>${r[0]} · ${r[1]}</b><div style="flex:1"></div>
+ <span class="bdg ${r[4]==='done'?'g':(r[4]==='miss'?'r':'n')}">${r[4]==='done'?'Выполнено':(r[4]==='miss'?'Не пришёл':'Ожидается')}</span></div>
+ <div class="adr">${ic('proc')} <span>${r[2]} · ${r[3]}</span></div>
+ ${r[4]==='wait'?`<div class="acts"><button class="btn gr" onclick="toast('Отмечено выполнено: ${r[1]}')">${ic('check')} Выполнено</button>
+ <button class="btn gh" onclick="toast('Отмечена неявка, врач уведомлён')">Не пришёл</button></div>`:''}
+</div>`).join('')}`;
+
+P.waterN=()=>`
+${hint('Приём минеральной воды — часть курса. Гость подходит к бювету, показывает QR, система отмечает приём и объём.')}
+<div class="kpis">
+  ${kpi('Приёмов за день','102','из 128 назначенных','','drop')}
+  ${kpi('Гостей на бювете','34','по графику','g','team')}
+  ${kpi('Пропусков','26','20 %','o','warn')}
+  ${kpi('Расход воды','21,4 л','за сутки','v','drop')}
+</div>
+<div class="card"><div class="hd"><h3>График приёма · 29 августа</h3></div>
+${tbl('<th>Время</th><th>Гостей</th><th>Объём на приём</th><th>За сколько до еды</th><th>Отмечено</th>',
+ [['07:30','12','200 мл','30 мин',12],['08:00','9','150 мл','за 40 мин',9],
+  ['11:00','9','200 мл','30 мин',7],['12:30','14','200 мл','40 мин',11],
+  ['17:00','11','150 мл','30 мин',0],['18:30','7','200 мл','40 мин',0]]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td class="m">${r[3]}</td>
+ <td>${r[4]===0?'<span class="bdg n">Ещё не было</span>':`<span class="bdg ${r[4]>=+r[1]?'g':'o'}">${r[4]} из ${r[1]}</span>`}</td></tr>`).join(''))}
+</div>`;
+
+/* ---------- ПРОДАЖИ ---------- */
+P.leads=()=>`
+${hint('Все обращения из WhatsApp, Instagram, с сайта и по телефону складываются в одну воронку. Ни один лид не теряется в переписке.')}
+<div class="kpis">
+  ${kpi('Новых за сегодня','14','+4 к вчера','g','crm')}
+  ${kpi('В работе','37','по всем этапам','','team')}
+  ${kpi('Конверсия месяца','32 %','+5 п.п.','o','rep')}
+  ${kpi('Просрочено','3','без ответа >4 часов','r','warn')}
+</div>
+<div class="card"><div class="hd"><h3>Воронка продаж</h3><div class="spacer"></div><button class="btn sm" onclick="leadModal()">${ic('plus')} Новый лид</button></div>
+<div class="bd"><div class="pipe">
+${LEADS.map(c=>`<div class="st"><h4>${c.st}<span>${c.items.length}</span></h4>
+ ${c.items.map(x=>`<div class="cd ${x.w?'warn':''}${x.ok?'done':''}${x.bad?'lost':''}" onclick="toast('Карточка лида: ${x.n}')">
+ <b>${x.n}</b><div class="m">${x.m}</div><div class="m">${x.d}</div></div>`).join('')}
+</div>`).join('')}
+</div></div></div>
+<div class="card"><div class="hd"><h3>Требуют ответа</h3></div><div class="bd tight"><div class="list">
+  <div class="it"><div class="ic r">${ic('phone')}</div><div class="tx"><b>Дильшод Рахимов</b><span>WhatsApp · без ответа 5 ч 20 мин</span></div><div class="rt"><button class="btn sm" onclick="toast('Открыт чат WhatsApp')">Ответить</button></div></div>
+  <div class="it"><div class="ic o">${ic('web')}</div><div class="tx"><b>Санжар Ермек</b><span>Заявка с сайта · счёт отправлен 2 дня назад</span></div><div class="rt"><button class="btn sm gh" onclick="toast('Напоминание отправлено')">Напомнить</button></div></div>
+  <div class="it"><div class="ic v">${ic('crm')}</div><div class="tx"><b>Асель Кайрат</b><span>Instagram · нужна консультация врача</span></div><div class="rt"><button class="btn sm gh" onclick="toast('Запись к врачу-консультанту создана')">К врачу</button></div></div>
+</div></div></div>`;
+
+P.web=()=>`
+${hint('Заявки и оплаты приходят с сайта bibirayhan.kz. Оплаченная бронь сразу занимает номер в шахматке.')}
+<div class="kpis">
+  ${kpi('Заявок за неделю','28','+9 к прошлой','g','web')}
+  ${kpi('Оплачено онлайн','11','2 640 000 ₸','','card')}
+  ${kpi('Ждут оплаты','6','счёт выставлен','o','clock')}
+  ${kpi('Отмен','2','7 %','r','warn')}
+</div>
+<div class="card"><div class="hd"><h3>Заявки с сайта</h3></div>
+${tbl('<th>Заявка</th><th>Гость</th><th>Категория</th><th>Даты</th><th class="num">Гостей</th><th class="num">Сумма</th><th>Оплата</th><th></th>',
+ WEBREQ.map(w=>`<tr><td><b>${w.id}</b></td><td>${w.fio}</td><td class="m">${w.room}</td><td>${w.dt}</td>
+ <td class="num">${w.ppl}</td><td class="num">${T(w.sum)}</td>
+ <td><span class="bdg ${w.st==='Оплачено'?'g':(w.st==='Отмена'?'r':(w.st==='Бронь'?'o':'b'))}">${w.pay}</span></td>
+ <td class="num">${w.st==='Отмена'?'—':`<button class="btn sm gh" onclick="toast('Заявка ${w.id} подтверждена, номер занят в шахматке')">В шахматку</button>`}</td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Что подключается на сайте</h3></div><div class="bd tight"><div class="list">
+  <div class="it"><div class="ic">${ic('cal')}</div><div class="tx"><b>Календарь свободных номеров</b><span>Берёт остатки прямо из шахматки, без ручного обновления</span></div></div>
+  <div class="it"><div class="ic g">${ic('card')}</div><div class="tx"><b>Оплата Kaspi и Halyk</b><span>Полная сумма или предоплата 30 %</span></div></div>
+  <div class="it"><div class="ic v">${ic('phone')}</div><div class="tx"><b>Подтверждение в WhatsApp</b><span>Гость получает путёвку и памятку автоматически</span></div></div>
+  <div class="it"><div class="ic o">${ic('web')}</div><div class="tx"><b>Формы на трёх языках</b><span>KZ / RU / UZ — под аудиторию Узбекистана</span></div></div>
+</div></div></div>`;
+
+P.base=()=>`
+<div class="filters"><input class="inp" placeholder="Поиск: имя, телефон, город" style="flex:1 1 220px">
+<select class="inp"><option>Все гости</option><option>Повторные</option><option>Год без визита</option></select>
+<button class="btn gd" onclick="toast('Рассылка создана: 84 получателя')">Рассылка в WhatsApp</button></div>
+<div class="card">
+${tbl('<th>Гость</th><th>Город</th><th class="num">Заездов</th><th>Последний</th><th>Программа</th><th class="num">Всего оплачено</th><th></th>',
+ [['Айна Серікова','Шымкент',3,'29.08.2026','ЖКТ',920000],
+  ['Ержан Тлеубаев','Алматы',4,'20.08.2026','Сахарный диабет',1840000],
+  ['Нурлан Оралбай','Тараз',2,'24.08.2026','Общий оздоровительный',412000],
+  ['Гүлмира Сәрсенова','Астана',1,'27.08.2026','Детокс',294000],
+  ['Дильшод Рахимов','Ташкент',2,'05.09.2026','Общий оздоровительный',1980000],
+  ['Марат Бекжанов','Кызылорда',5,'23.08.2026','Суставной комплекс',2310000],
+  ['Зухра Юсупова','Ташкент',1,'26.08.2026','ЖКТ',340000]]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td class="m">${r[1]}</td>
+ <td class="num">${r[2]>2?`<span class="bdg g">${r[2]}</span>`:r[2]}</td><td>${r[3]}</td>
+ <td class="m">${r[4]}</td><td class="num">${T(r[5])}</td>
+ <td class="num"><button class="btn sm gh" onclick="toast('Предложение отправлено: ${r[0]}')">Предложить</button></td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Автоматические напоминания</h3></div><div class="bd tight"><div class="list">
+  <div class="it"><div class="ic">${ic('clock')}</div><div class="tx"><b>Через 11 месяцев после курса</b><span>«Пора повторить курс» — 34 гостя в очереди</span></div><div class="rt"><span class="bdg b">Включено</span></div></div>
+  <div class="it"><div class="ic g">${ic('star')}</div><div class="tx"><b>Через 2 дня после выезда</b><span>Просьба оставить отзыв, ссылка на 2ГИС и Instagram</span></div><div class="rt"><span class="bdg b">Включено</span></div></div>
+  <div class="it"><div class="ic o">${ic('bell')}</div><div class="tx"><b>За 3 дня до заезда</b><span>Памятка: что взять, во сколько трансфер</span></div><div class="rt"><span class="bdg b">Включено</span></div></div>
+</div></div></div>`;
+
+P.src=()=>`
+<div class="card"><div class="hd"><h3>Источники обращений, август</h3></div>
+${tbl('<th>Канал</th><th class="num">Лидов</th><th class="num">Продаж</th><th class="num">Конверсия</th><th class="num">Выручка</th><th class="num">Затраты</th><th class="num">Окупаемость</th>',
+ SRC.map(s=>`<tr><td><b>${s.n}</b></td><td class="num">${s.lead}</td><td class="num">${s.deal}</td>
+ <td class="num">${Math.round(s.deal/s.lead*100)} %</td><td class="num">${T(s.rev)}</td>
+ <td class="num">${s.cost?T(s.cost):'—'}</td>
+ <td class="num">${s.cost?`<span class="bdg g">×${(s.rev/s.cost).toFixed(1)}</span>`:'<span class="bdg b">бесплатно</span>'}</td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Динамика обращений</h3></div><div class="bd">
+  <div class="bars">${[48,52,61,58,74,81,69,88].map((v,i)=>`<div class="b"><i style="height:${v}%"></i><span>${['янв','фев','мар','апр','май','июн','июл','авг'][i]}</span></div>`).join('')}</div>
+  <div class="leg"><span><i style="background:var(--acc)"></i>Обращений в месяц</span></div>
+</div></div>`;
+
+P.task=()=>`
+<div class="filters"><select class="inp"><option>Мои задачи</option><option>Все задачи отдела</option></select>
+<button class="btn" onclick="toast('Форма новой задачи')">${ic('plus')} Задача</button></div>
+${[['09:30','Позвонить','Дильшод Рахимов','Согласовать даты и VIP-номер на 4 человек','r'],
+   ['11:00','WhatsApp','Асель Кайрат','Отправить программу ЖКТ и прайс','o'],
+   ['13:00','Счёт','ТОО «Алтын Дән»','Корпоратив 12 человек, конференц-зал','n'],
+   ['15:00','Перезвонить','Ольга Пак','Подтвердить трансфер из Шымкента','n'],
+   ['17:00','Рассылка','База повторных','34 гостя — год с последнего курса','n']]
+ .map(r=>`<div class="dcard">
+ <div class="t"><b>${r[0]} · ${r[1]}</b><div style="flex:1"></div><span class="bdg ${r[4]}">${r[4]==='r'?'Просрочено':(r[4]==='o'?'Сегодня':'В плане')}</span></div>
+ <div class="adr">${ic('team')} <span><b>${r[2]}</b> — ${r[3]}</span></div>
+ <div class="acts"><button class="btn gr" onclick="toast('Задача выполнена')">${ic('check')} Выполнено</button>
+ <button class="btn gh" onclick="toast('Задача перенесена на завтра')">Перенести</button></div>
+</div>`).join('')}`;
+
+/* ---------- КУХНЯ ---------- */
+P.menu=()=>`
+${hint('Наряд на кухню формируется сам: заезды, выезды и диетстолы берутся из путёвок и назначений врача.')}
+<div class="kpis">
+  ${kpi('Питающихся сегодня','46','41 в корпусе + 5 заезд','','food')}
+  ${kpi('Приёмов пищи','5','по путёвке','g','clock')}
+  ${kpi('Диетстолов','6','видов','o','doc')}
+  ${kpi('Стоимость дня','386 400 ₸','8 400 ₸ на гостя','v','money')}
+</div>
+<div class="card"><div class="hd"><h3>Наряд на 29 августа</h3><div class="spacer"></div><button class="btn sm gh" onclick="toast('Печать наряда на кухню')">Печать</button></div>
+${tbl('<th>Приём пищи</th><th>Время</th><th class="num">Порций</th><th>Диетстолы</th><th class="num">Особые</th>',
+ [['Завтрак','08:00 – 10:00',46,'1, 5, 9, 15',3],
+  ['Второй завтрак','11:00',44,'1, 5, 9',1],
+  ['Обед','13:00 – 15:00',46,'1, 5, 9, 15',3],
+  ['Полдник','16:30',42,'1, 9',1],
+  ['Ужин','18:30 – 20:00',46,'1, 5, 9, 15',3]]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="num">${r[2]}</td><td class="m">${r[3]}</td>
+ <td class="num">${r[4]?`<span class="bdg o">${r[4]}</span>`:'—'}</td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Особые требования на сегодня</h3></div><div class="bd tight"><div class="list">
+  <div class="it"><div class="ic r">${ic('warn')}</div><div class="tx"><b>Серікова А., номер 314</b><span>Непереносимость лактозы — стол №1 без молочного</span></div></div>
+  <div class="it"><div class="ic o">${ic('warn')}</div><div class="tx"><b>Абдуллаева С., номер 403</b><span>Вегетарианское питание по запросу гостя</span></div></div>
+  <div class="it"><div class="ic v">${ic('food')}</div><div class="tx"><b>Рахимов Д. + 3, номер 402</b><span>Заезд к обеду, халяль, детская порция ×2</span></div></div>
+</div></div></div>`;
+
+P.diet=()=>`
+<div class="card"><div class="hd"><h3>Диетстолы · 29 августа</h3><div class="spacer"></div><span class="mini">назначает врач</span></div>
+${tbl('<th>Стол</th><th>Показания</th><th class="num">Гостей</th><th>Доля</th>',
+ DIETS.map(d=>`<tr><td><b>${d.n}</b></td><td class="m">${d.d}</td><td class="num">${d.cnt}</td>
+ <td><div class="prog" style="width:120px"><i style="width:${Math.round(d.cnt/46*100)}%"></i></div></td></tr>`).join(''))}
+</div>
+<div class="card"><div class="hd"><h3>Кто на каком столе</h3></div>
+${tbl('<th>Гость</th><th>Номер</th><th>Стол</th><th>Назначил</th><th>Комментарий</th>',
+ [['Айна Серікова','314','Стол №1','Оспанов Н.','Без лактозы'],
+  ['Марат Бекжанов','202','Стол №15','Оспанов Н.','—'],
+  ['Гүлмира Сәрсенова','301','Стол №5','Ахметова Р.','Детокс-меню'],
+  ['Ержан Тлеубаев','401','Стол №9','Оспанов Н.','Контроль углеводов'],
+  ['Сабина Абдуллаева','403','Вегетарианский','Ахметова Р.','По запросу'],
+  ['Зухра Юсупова','204','Стол №1','Оспанов Н.','—']]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="bdg b">${r[2]}</span></td>
+ <td class="m">${r[3]}</td><td class="m">${r[4]}</td></tr>`).join(''))}
+</div>`;
+
+P.stock=()=>`
+<div class="filters"><input class="inp" placeholder="Поиск продукта" style="flex:1 1 200px">
+<button class="btn" onclick="stockModal()">${ic('plus')} Приход продуктов</button>
+<button class="btn gh" onclick="toast('Заявка поставщику сформирована')">Заявка поставщику</button></div>
+<div class="card">
+${tbl('<th>Продукт</th><th class="num">Остаток</th><th class="num">Минимум</th><th class="num">Цена</th><th class="num">Сумма</th><th>Статус</th>',
+ STOCK.map(s=>`<tr><td><b>${s.n}</b></td><td class="num">${F(s.q)} ${s.u}</td><td class="num m">${F(s.min)} ${s.u}</td>
+ <td class="num">${T(s.pr)}</td><td class="num">${T(s.q*s.pr)}</td>
+ <td>${s.q<s.min?'<span class="bdg r">Ниже минимума</span>':(s.q<s.min*1.2?'<span class="bdg o">Заканчивается</span>':'<span class="bdg g">Норма</span>')}</td></tr>`).join(''))}
+</div>`;
+
+P.calc=()=>`
+<div class="kpis">
+  ${kpi('Себестоимость дня','386 400 ₸','46 гостей','','money')}
+  ${kpi('На одного гостя','8 400 ₸','5 приёмов пищи','g','food')}
+  ${kpi('Доля в путёвке','21,6 %','норма до 24 %','o','rep')}
+  ${kpi('Списано за месяц','9 870 000 ₸','август','v','box')}
+</div>
+<div class="card"><div class="hd"><h3>Расход по группам, август</h3></div><div class="bd">
+  <div class="bars">${[['Мясо',88],['Овощи',54],['Молочка',46],['Крупы',31],['Фрукты',42],['Рыба',26],['Прочее',19]].map(x=>`<div class="b"><i class="${x[1]>50?'':'alt'}" style="height:${x[1]}%"></i><span>${x[0]}</span></div>`).join('')}</div>
+  <div class="leg"><span><i style="background:var(--acc)"></i>Доля затрат</span></div>
+</div></div>
+<div class="card"><div class="hd"><h3>Себестоимость приёмов пищи</h3></div>
+${tbl('<th>Приём пищи</th><th class="num">Порций</th><th class="num">На порцию</th><th class="num">Итого</th>',
+ [['Завтрак',46,1450],['Второй завтрак',44,480],['Обед',46,3200],['Полдник',42,620],['Ужин',46,2650]]
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td class="num">${r[1]}</td><td class="num">${T(r[2])}</td><td class="num"><b>${T(r[1]*r[2])}</b></td></tr>`).join(''))}
+</div>`;
+
+/* ---------- ГОСТЬ ---------- */
+P.my=()=>`
+${hint('Мобильный кабинет гостя. Открывается по QR-коду в номере — без установки приложения.')}
+<div class="card"><div class="hd"><h3>Айна Серікова · номер 314</h3><div class="spacer"></div><span class="bdg b">Luxe</span></div>
+<div class="bd">
+  <div class="kpis" style="margin-bottom:0">
+    ${kpi('Программа','ЖКТ','день 4 из 10','','med')}
+    ${kpi('Выезд','4 сентября','до 12:00','o','clock')}
+    ${kpi('Процедур пройдено','27','из 70 по курсу','g','check')}
+    ${kpi('Лечащий врач','Оспанов Н.','гастроэнтеролог','v','usr')}
+  </div>
+</div></div>
+<div class="card"><div class="hd"><h3>Ход курса</h3></div><div class="bd">
+${[['Минеральная ванна',4,10],['Приём минводы',12,30],['Кишечное орошение',2,5],['Общий массаж',2,5],['ЛФК',4,10],['Бассейн',3,10]]
+ .map(r=>`<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${r[0]}</span><b>${r[1]} / ${r[2]}</b></div><div class="prog"><i class="${r[1]/r[2]>0.5?'g':''}" style="width:${Math.round(r[1]/r[2]*100)}%"></i></div></div>`).join('')}
+</div></div>`;
+
+P.mysch=()=>`
+<div class="card"><div class="hd"><h3>Моё расписание · 29 августа</h3></div><div class="bd tight"><div class="list">
+${[['07:30','Приём минводы','Бювет, 200 мл за 30 мин до завтрака','g'],
+   ['08:00','Завтрак','Ресторан, стол №1','g'],
+   ['09:30','Осмотр врача','Кабинет 12, Оспанов Н.','g'],
+   ['10:00','Общий массаж','Массаж №1, 45 мин','o'],
+   ['11:00','Приём минводы','Бювет, 200 мл',''],
+   ['13:00','Обед','Ресторан, стол №1',''],
+   ['15:00','Минеральная ванна','Ванный зал №1, 20 мин',''],
+   ['16:30','Полдник','Ресторан',''],
+   ['17:30','ЛФК групповая','ЛФК-зал, 45 мин',''],
+   ['18:30','Ужин','Ресторан, стол №1','']]
+ .map(r=>`<div class="it"><div class="ic ${r[3]}">${ic(r[1].includes('минводы')?'drop':(r[1].includes('трак')||r[1].includes('Обед')||r[1].includes('Ужин')||r[1].includes('олдник')?'food':'proc'))}</div>
+ <div class="tx"><b>${r[0]} · ${r[1]}</b><span>${r[2]}</span></div>
+ <div class="rt">${r[3]==='g'?'<span class="bdg g">Пройдено</span>':(r[3]==='o'?'<span class="bdg o">Сейчас</span>':'')}</div></div>`).join('')}
+</div></div></div>
+<div class="card"><div class="bd" style="display:flex;gap:9px;flex-wrap:wrap">
+  <button class="btn gh" onclick="toast('Напоминания включены')">${ic('bell')} Напоминать за 15 минут</button>
+  <button class="btn gh" onclick="toast('Запрос переноса отправлен медсестре')">Перенести процедуру</button>
+</div></div>`;
+
+P.mymenu=()=>`
+<div class="card"><div class="hd"><h3>Моё меню на сегодня</h3><div class="spacer"></div><span class="bdg b">Стол №1, без лактозы</span></div>
+<div class="bd tight"><div class="list">
+  <div class="it"><div class="ic">${ic('food')}</div><div class="tx"><b>Завтрак · 08:00 – 10:00</b><span>Овсяная каша на воде, омлет паровой, чай травяной, хлеб вчерашний</span></div></div>
+  <div class="it"><div class="ic">${ic('food')}</div><div class="tx"><b>Второй завтрак · 11:00</b><span>Печёное яблоко, компот из сухофруктов</span></div></div>
+  <div class="it"><div class="ic">${ic('food')}</div><div class="tx"><b>Обед · 13:00 – 15:00</b><span>Суп-пюре овощной, куриное суфле, картофельное пюре, кисель</span></div></div>
+  <div class="it"><div class="ic">${ic('food')}</div><div class="tx"><b>Полдник · 16:30</b><span>Галетное печенье, отвар шиповника</span></div></div>
+  <div class="it"><div class="ic">${ic('food')}</div><div class="tx"><b>Ужин · 18:30 – 20:00</b><span>Рыба на пару, гречка, салат из отварной свёклы, чай</span></div></div>
+</div></div></div>
+<div class="card"><div class="bd" style="display:flex;gap:9px;flex-wrap:wrap">
+  <button class="btn gh" onclick="toast('Запрос отправлен: замена блюда')">Попросить замену блюда</button>
+  <button class="btn gh" onclick="toast('Запрос отправлен на кухню и врачу')">Сообщить об аллергии</button>
+</div></div>`;
+
+P.myserv=()=>`
+<div class="row">
+  <div class="col"><div class="card"><div class="hd"><h3>Заказать услугу</h3></div><div class="bd tight"><div class="list">
+    <div class="it"><div class="ic v">${ic('spa')}</div><div class="tx"><b>SPA и beauty</b><span>Хаммам, обёртывания, косметолог</span></div><div class="rt"><button class="btn sm" onclick="toast('Открыта запись в SPA')">Записаться</button></div></div>
+    <div class="it"><div class="ic">${ic('bus')}</div><div class="tx"><b>Экскурсия</b><span>Туркестан, Ташкент, Самарканд, Бухара</span></div><div class="rt"><button class="btn sm" onclick="toast('Заявка на экскурсию отправлена')">Заявка</button></div></div>
+    <div class="it"><div class="ic o">${ic('home')}</div><div class="tx"><b>Уборка номера</b><span>Свободное время для горничной</span></div><div class="rt"><button class="btn sm gh" onclick="toast('Заявка на уборку принята')">Заказать</button></div></div>
+    <div class="it"><div class="ic g">${ic('food')}</div><div class="tx"><b>Ресторан a la carte</b><span>Вне программы питания</span></div><div class="rt"><button class="btn sm gh" onclick="toast('Меню a la carte открыто')">Меню</button></div></div>
+    <div class="it"><div class="ic">${ic('bus')}</div><div class="tx"><b>Обратный трансфер</b><span>Шымкент и Сарыагаш, бесплатно</span></div><div class="rt"><button class="btn sm gh" onclick="toast('Трансфер на 04.09 забронирован')">Заказать</button></div></div>
+  </div></div></div></div>
+  <div class="col"><div class="card"><div class="hd"><h3>Мои заявки</h3></div><div class="bd tight"><div class="list">
+    <div class="it"><div class="ic g">${ic('check')}</div><div class="tx"><b>Хаммам, 27.08</b><span>Выполнено · 14 000 ₸</span></div></div>
+    <div class="it"><div class="ic o">${ic('clock')}</div><div class="tx"><b>Экскурсия в Туркестан, 02.09</b><span>Подтверждена, сбор в 07:00</span></div></div>
+    <div class="it"><div class="ic">${ic('bus')}</div><div class="tx"><b>Трансфер 04.09, 12:30</b><span>Шымкент, аэропорт</span></div></div>
+  </div></div></div></div>
+</div>`;
+
+P.mybill=()=>`
+<div class="kpis">
+  ${kpi('Путёвка','340 000 ₸','ЖКТ, 10 дней','','doc')}
+  ${kpi('Оплачено','340 000 ₸','полностью','g','check')}
+  ${kpi('Доп. услуги','26 000 ₸','на счёт номера','o','spa')}
+  ${kpi('К оплате при выезде','26 000 ₸','04 сентября','r','money')}
+</div>
+<div class="card"><div class="hd"><h3>Мой счёт</h3></div>
+${tbl('<th>Дата</th><th>Услуга</th><th>Способ</th><th class="num">Сумма</th>',
+ [['24.08','Путёвка ЖКТ, 10 дней, Luxe','Kaspi онлайн',340000],
+  ['27.08','SPA: хаммам','На счёт номера',14000],
+  ['27.08','Ресторан a la carte','На счёт номера',7600],
+  ['28.08','Минеральная вода в номер','На счёт номера',4400]]
+ .map(r=>`<tr><td class="m">${r[0]}</td><td><b>${r[1]}</b></td><td><span class="bdg ${r[2]==='Kaspi онлайн'?'g':'n'}">${r[2]}</span></td><td class="num">${T(r[3])}</td></tr>`).join(''))}
+<div class="bd" style="border-top:1px solid var(--line);display:flex;gap:9px;flex-wrap:wrap">
+  <button class="btn" onclick="toast('Открыта оплата Kaspi на 26 000 ₸')">${ic('card')} Оплатить сейчас</button>
+  <button class="btn gh" onclick="toast('Счёт отправлен на WhatsApp')">Отправить счёт себе</button>
+</div>
+</div>`;
+
+/* ==================== НАВИГАЦИЯ ==================== */
+const NAV={
+  boss:{name:'Сәкен Әлікбай',pos:'Директор',ini:'СӘ',
+    items:[
+      {k:'dash',t:'Дашборд',i:'home',g:'Обзор'},
+      {k:'shah',t:'Шахматка номеров',i:'bed',g:'Размещение'},
+      {k:'book',t:'Брони и путёвки',i:'cal'},
+      {k:'arr',t:'Заезды и выезды',i:'bus'},
+      {k:'recep',t:'Приём врачей',i:'med',g:'Лечение'},
+      {k:'cab',t:'Загрузка кабинетов',i:'proc'},
+      {k:'progA',t:'Программы лечения',i:'doc'},
+      {k:'menu',t:'Питание и кухня',i:'food',g:'Сервис'},
+      {k:'stock',t:'Склад продуктов',i:'box'},
+      {k:'leads',t:'CRM: воронка',i:'crm',g:'Продажи'},
+      {k:'web',t:'Заявки с сайта',i:'web',c:'4'},
+      {k:'src',t:'Источники и реклама',i:'rep'},
+      {k:'cash',t:'Касса и оплаты',i:'money',g:'Управление'},
+      {k:'rep',t:'Отчёты собственника',i:'rep'},
+      {k:'usr',t:'Сотрудники и доступы',i:'team'},
+      {k:'set',t:'Настройки и тарифы',i:'set'}
+    ],
+    bottom:['dash','shah','leads','cash','rep']},
+
+  admin:{name:'Айгүл Тұрсынова',pos:'Администратор',ini:'АТ',
+    items:[
+      {k:'shah',t:'Шахматка номеров',i:'bed',g:'Работа'},
+      {k:'arr',t:'Заезды и выезды',i:'bus',c:'10'},
+      {k:'book',t:'Брони и путёвки',i:'cal'},
+      {k:'guests',t:'Гости в корпусе',i:'team'},
+      {k:'web',t:'Заявки с сайта',i:'web',c:'4',g:'Продажи'},
+      {k:'cash',t:'Касса и счета',i:'money'}
+    ],
+    bottom:['shah','arr','book','guests','cash']},
+
+  doctor:{name:'Нұрлан Оспанов',pos:'Гастроэнтеролог',ini:'НО',
+    items:[
+      {k:'recep',t:'Приём на сегодня',i:'med',g:'Работа',c:'3'},
+      {k:'cards',t:'Карты гостей',i:'doc'},
+      {k:'assign',t:'Назначения',i:'proc'},
+      {k:'progA',t:'Программы лечения',i:'doc',g:'Справочники'},
+      {k:'sched',t:'Расписание кабинетов',i:'clock'}
+    ],
+    bottom:['recep','cards','assign','sched']},
+
+  nurse:{name:'Гүлнар Ахметова',pos:'Медсестра, процедурная',ini:'ГА',
+    items:[
+      {k:'sched',t:'Расписание процедур',i:'clock',g:'Работа'},
+      {k:'doneN',t:'Отметка выполнения',i:'check',c:'4'},
+      {k:'cab',t:'Загрузка кабинетов',i:'proc'},
+      {k:'waterN',t:'Бювет минводы',i:'drop'}
+    ],
+    bottom:['sched','doneN','cab','waterN']},
+
+  manager:{name:'Диас Кенжебек',pos:'Менеджер продаж',ini:'ДК',
+    items:[
+      {k:'leads',t:'Лиды и воронка',i:'crm',g:'Работа',c:'3'},
+      {k:'task',t:'Задачи и звонки',i:'phone',c:'5'},
+      {k:'web',t:'Заявки с сайта',i:'web',c:'4'},
+      {k:'base',t:'База гостей',i:'team',g:'Аналитика'},
+      {k:'src',t:'Источники и реклама',i:'rep'}
+    ],
+    bottom:['leads','task','web','base','src']},
+
+  chef:{name:'Мурат Ибрагимов',pos:'Шеф-повар',ini:'МИ',
+    items:[
+      {k:'menu',t:'Наряд на питание',i:'food',g:'Кухня'},
+      {k:'diet',t:'Диетстолы',i:'doc'},
+      {k:'stock',t:'Склад продуктов',i:'box',c:'2'},
+      {k:'calc',t:'Расход и себестоимость',i:'money'}
+    ],
+    bottom:['menu','diet','stock','calc']},
+
+  guest:{name:'Айна Серікова',pos:'Гость · номер 314',ini:'АС',
+    items:[
+      {k:'my',t:'Моя программа',i:'med',g:'Мой отдых'},
+      {k:'mysch',t:'Расписание на день',i:'clock'},
+      {k:'mymenu',t:'Меню и питание',i:'food'},
+      {k:'myserv',t:'Услуги и заявки',i:'spa'},
+      {k:'mybill',t:'Мой счёт',i:'card'}
+    ],
+    bottom:['my','mysch','mymenu','myserv','mybill']}
+};
+
+const TITLES={dash:'Дашборд',shah:'Шахматка номеров',book:'Брони и путёвки',arr:'Заезды и выезды',
+  guests:'Гости в корпусе',cash:'Касса и счета',recep:'Приём на сегодня',cards:'Карты гостей',
+  assign:'Назначения',progA:'Программы лечения',sched:'Расписание процедур',cab:'Загрузка кабинетов',
+  doneN:'Отметка выполнения',waterN:'Бювет минеральной воды',leads:'Лиды и воронка',task:'Задачи и звонки',
+  web:'Заявки с сайта',base:'База гостей',src:'Источники и реклама',menu:'Наряд на питание',
+  diet:'Диетстолы',stock:'Склад продуктов',calc:'Расход и себестоимость',rep:'Отчёты собственника',
+  usr:'Сотрудники и доступы',set:'Настройки и тарифы',my:'Моя программа',mysch:'Расписание на день',
+  mymenu:'Меню и питание',myserv:'Услуги и заявки',mybill:'Мой счёт'};
+
+const SUBS={dash:'Сегодня, '+DATE,shah:'7 дней · 10 номеров',book:'Действующие и будущие путёвки',
+  arr:'29 августа · 6 заездов, 4 выезда',guests:'41 гость в корпусе',cash:'Операции и дебиторка',
+  recep:'7 приёмов · 2 первичных',cards:'Медицинские карты гостей',assign:'Конструктор курса лечения',
+  progA:'6 профильных направлений',sched:'Кабинеты и слоты на день',cab:'План и факт по кабинетам',
+  doneN:'Журнал процедур смены',waterN:'Приём воды по назначению',leads:'Все каналы в одной воронке',
+  task:'Мои задачи на сегодня',web:'bibirayhan.kz · онлайн-бронь',base:'Повторные заезды и рассылки',
+  src:'Отдача каналов, август',menu:'Кухня · '+DATE,diet:'Назначены врачом',stock:'Остатки и минимумы',
+  calc:'Себестоимость питания',rep:'Загрузка, ADR, RevPAR',usr:'Роли и права доступа',
+  set:'Номера, тарифы, процедуры',my:'ЖКТ · день 4 из 10',mysch:'29 августа',mymenu:'Стол №1',
+  myserv:'SPA, экскурсии, сервис',mybill:'Путёвка П-2418'};
+
+let role='boss', page='dash';
+
+function render(){
+  const r=NAV[role];
+  document.getElementById('sbnav').innerHTML = r.items.map(it=>
+    (it.g?`<div class="grp">${it.g}</div>`:'')+
+    `<a class="item ${page===it.k?'act':''}" onclick="go('${it.k}')">${ic(it.i)}<span>${it.t}</span>${it.c?`<span class="cnt">${it.c}</span>`:''}</a>`).join('');
+  document.getElementById('sbwho').innerHTML=`<b>${r.name}</b>${r.pos}`;
+  document.getElementById('ava').textContent=r.ini;
+  document.getElementById('pgTitle').textContent=TITLES[page]||'';
+  document.getElementById('pgSub').textContent=SUBS[page]||'';
+  document.getElementById('content').innerHTML=(P[page]||(()=>'<div class="card"><div class="empty"><b>Раздел в макете не раскрыт</b>Выберите другой пункт меню</div></div>'))();
+  const rest=r.items.filter(it=>!r.bottom.includes(it.k));
+  const bn=r.bottom.map(k=>{const it=r.items.find(x=>x.k===k);
+    return `<a class="${page===k?'act':''}" onclick="go('${k}')">${ic(it.i)}<span>${it.t.split(' ')[0]}</span>${it.c?`<span class="cnt">${it.c}</span>`:''}</a>`}).join('');
+  document.getElementById('bnav').innerHTML=bn+(rest.length?
+    `<a onclick="openSheet()" class="${r.bottom.includes(page)?'':'act'}">${ic('more')}<span>Ещё</span></a>`:'');
+  document.getElementById('sheetTitle').textContent=`Ещё разделы · ${rest.length}`;
+  document.getElementById('sheetItems').innerHTML=rest.map(it=>
+    `<a onclick="go('${it.k}');closeSheet()"><span class="ic">${ic(it.i)}</span>${it.t}${it.c?`<span class="cnt">${it.c}</span>`:''}</a>`).join('');
+  if(!rest.length)closeSheet();
+  window.scrollTo(0,0);
+}
+function go(k){page=k;render()}
+function setRole(v){role=v;page=NAV[v].items[0].k;render();toast('Вход как: '+NAV[v].pos)}
+function openSheet(){document.getElementById('sheet').classList.add('on');document.getElementById('sheetOv').classList.add('on')}
+function closeSheet(){document.getElementById('sheet').classList.remove('on');document.getElementById('sheetOv').classList.remove('on')}
+
+/* ==================== МОДАЛКИ ==================== */
+let saveFn=null;
+function modal(title,body,fn,btn='Сохранить'){
+  document.getElementById('mTitle').textContent=title;
+  document.getElementById('mBody').innerHTML=body;
+  document.getElementById('mSave').innerHTML=btn;
+  saveFn=fn;document.getElementById('modalOv').classList.add('on');
+}
+function closeModal(){document.getElementById('modalOv').classList.remove('on')}
+function saveModal(){if(saveFn)saveFn();closeModal()}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),2600)}
+
+function alertsModal(){
+  modal('Уведомления',`<div class="list" style="margin:-16px">
+    <div class="it"><div class="ic r">${ic('warn')}</div><div class="tx"><b>Долг по путёвке П-2419</b><span>Бекжанов М., выезд 06.09 — 211 000 ₸</span></div></div>
+    <div class="it"><div class="ic o">${ic('web')}</div><div class="tx"><b>4 заявки с сайта без ответа</b><span>Старейшая — 19 часов</span></div></div>
+    <div class="it"><div class="ic o">${ic('box')}</div><div class="tx"><b>Молочная группа ниже минимума</b><span>74 л при норме 80 л</span></div></div>
+    <div class="it"><div class="ic">${ic('proc')}</div><div class="tx"><b>7 неявок на процедуры</b><span>Врачи уведомлены</span></div></div>
+    <div class="it"><div class="ic g">${ic('card')}</div><div class="tx"><b>Онлайн-оплата WB-1187</b><span>142 800 ₸ поступило через Kaspi</span></div></div>
+  </div>`,()=>toast('Уведомления отмечены как прочитанные'),'Прочитано');
+}
+
+function bookModal(){
+  modal('Новая бронь',`
+    <div class="f2"><div class="field"><label>Заезд</label><input class="inp" type="date" value="2026-09-05"></div>
+    <div class="field"><label>Выезд</label><input class="inp" type="date" value="2026-09-15"></div></div>
+    <div class="field"><label>Гость</label><input class="inp" placeholder="Фамилия, имя"></div>
+    <div class="f2"><div class="field"><label>Телефон</label><input class="inp" placeholder="+7 ___ ___ __ __"></div>
+    <div class="field"><label>Гостей</label><input class="inp" value="2"></div></div>
+    <div class="f2"><div class="field"><label>Категория номера</label><select class="inp"><option>Deluxe</option><option>Deluxe Premium</option><option>Luxe</option><option>Luxe Premium</option><option>VIP</option></select></div>
+    <div class="field"><label>Номер</label><select class="inp"><option>Подобрать автоматически</option>${ROOMS.map(r=>`<option>${r.n} · ${r.t}</option>`).join('')}</select></div></div>
+    <div class="field"><label>Программа лечения</label><select class="inp"><option>Без лечения, только проживание</option>${PROGRAMS.map(p=>`<option>${p.t}</option>`).join('')}</select></div>
+    <div class="f2"><div class="field"><label>Источник</label><select class="inp"><option>Instagram</option><option>WhatsApp</option><option>Сайт</option><option>Агент, Узбекистан</option><option>Рекомендация</option><option>Повторный гость</option></select></div>
+    <div class="field"><label>Трансфер</label><select class="inp"><option>Не нужен</option><option>Шымкент, аэропорт</option><option>Шымкент, вокзал</option><option>Сарыагаш, вокзал</option></select></div></div>
+    <div class="field"><label>Примечание</label><textarea class="inp" rows="2" placeholder="дети, особое питание, пожелания по номеру"></textarea></div>`,
+    ()=>toast('Бронь создана, номер занят в шахматке'),'Создать бронь');
+}
+
+function cellModal(rm,st){
+  if(st==='free'){bookModal();return}
+  modal(`Номер ${rm} · ${SHNAMES[st]}`,`
+    <div class="list" style="margin:-16px -16px 0">
+      <div class="it"><div class="ic">${ic('usr')}</div><div class="tx"><b>Гость</b><span>${(GUESTS.find(g=>g.room===rm)||{}).fio||'Бронь без данных'}</span></div></div>
+      <div class="it"><div class="ic">${ic('med')}</div><div class="tx"><b>Программа</b><span>${PRG((GUESTS.find(g=>g.room===rm)||{}).prog)}</span></div></div>
+      <div class="it"><div class="ic">${ic('cal')}</div><div class="tx"><b>Выезд</b><span>${(GUESTS.find(g=>g.room===rm)||{}).out||'—'}</span></div></div>
+      <div class="it"><div class="ic">${ic('money')}</div><div class="tx"><b>Оплата</b><span>${(()=>{const g=GUESTS.find(x=>x.room===rm);return g?(g.paid>=g.sum?'Оплачено полностью':'Долг '+T(g.sum-g.paid)):'—'})()}</span></div></div>
+    </div>`,()=>toast('Изменения по номеру '+rm+' сохранены'),'Изменить');
+}
+
+function guestModal(id){
+  const g=GUESTS.find(x=>x.id===id)||GUESTS[0];
+  modal('Путёвка '+g.id,`
+    <div class="list" style="margin:-16px -16px 12px">
+      <div class="it"><div class="ic">${ic('usr')}</div><div class="tx"><b>${g.fio}</b><span>Номер ${g.room} · источник: ${g.src}</span></div></div>
+      <div class="it"><div class="ic">${ic('med')}</div><div class="tx"><b>${PRG(g.prog)}</b><span>День ${g.day} · врач ${g.dr}</span></div></div>
+      <div class="it"><div class="ic ${g.paid>=g.sum?'g':'r'}">${ic('money')}</div><div class="tx"><b>${T(g.sum)}</b><span>${g.paid>=g.sum?'Оплачено полностью':'Оплачено '+T(g.paid)+', долг '+T(g.sum-g.paid)}</span></div></div>
+      <div class="it"><div class="ic">${ic('cal')}</div><div class="tx"><b>Выезд ${g.out}</b><span>Расчётный час 12:00</span></div></div>
+    </div>
+    <div class="field"><label>Комментарий администратора</label><textarea class="inp" rows="2" placeholder="пожелания, особенности"></textarea></div>`,
+    ()=>toast('Путёвка '+g.id+' обновлена'),'Сохранить');
+}
+
+function checkinModal(fio){
+  modal('Заселение · '+fio,`
+    <div class="f2"><div class="field"><label>Номер</label><select class="inp">${ROOMS.map(r=>`<option>${r.n} · ${r.t}</option>`).join('')}</select></div>
+    <div class="field"><label>Ключей выдано</label><input class="inp" value="2"></div></div>
+    <div class="field"><label>Документы</label><select class="inp"><option>Удостоверение личности РК</option><option>Паспорт РУз</option><option>Загранпаспорт</option></select></div>
+    <div class="field"><label>Первичный приём врача</label><select class="inp"><option>Сегодня 14:00 · Оспанов Н.</option><option>Сегодня 16:00 · Ахметова Р.</option><option>Завтра 09:00 · Оспанов Н.</option></select></div>
+    <div class="drop" onclick="toast('Скан документа загружен')">${ic('dl')} Загрузить скан документа</div>`,
+    ()=>toast('Гость заселён, приём врача записан'),'Заселить');
+}
+
+function payModal(){
+  modal('Принять оплату',`
+    <div class="field"><label>Путёвка или гость</label><select class="inp">${GUESTS.map(g=>`<option>${g.id} · ${g.fio}</option>`).join('')}<option>Разовый гость</option></select></div>
+    <div class="f2"><div class="field"><label>Сумма, ₸</label><input class="inp" placeholder="150000"></div>
+    <div class="field"><label>Способ</label><select class="inp"><option>Kaspi QR</option><option>Карта</option><option>Наличные</option><option>Безнал, счёт</option></select></div></div>
+    <div class="field"><label>Назначение</label><select class="inp"><option>Доплата за путёвку</option><option>Предоплата</option><option>SPA и beauty</option><option>Ресторан a la carte</option><option>Экскурсия</option><option>Конференц-зал</option></select></div>
+    <div class="field"><label>Примечание</label><input class="inp" placeholder="необязательно"></div>`,
+    ()=>toast('Оплата принята, чек отправлен гостю'),'Провести');
+}
+
+function assignModal(fio){
+  modal('Назначение · '+fio,`
+    <div class="field"><label>Программа</label><select class="inp">${PROGRAMS.map(p=>`<option>${p.t}</option>`).join('')}</select></div>
+    <div class="f2"><div class="field"><label>Длительность курса</label><select class="inp"><option>7 дней</option><option>10 дней</option><option>14 дней</option><option>21 день</option></select></div>
+    <div class="field"><label>Диетстол</label><select class="inp">${DIETS.map(d=>`<option>${d.n}</option>`).join('')}</select></div></div>
+    <div class="field"><label>Процедуры курса</label>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        ${['Минеральная ванна','Приём минводы','Кишечное орошение','Циркулярный душ','Магнитотерапия','Электрофорез','Общий массаж','Галотерапия','ЛФК','Бассейн']
+          .map((p,i)=>`<label class="bdg ${i<4?'b':'n'}" style="cursor:pointer"><input type="checkbox" ${i<4?'checked':''} style="margin-right:5px">${p}</label>`).join('')}
+      </div>
+    </div>
+    <div class="field"><label>Противопоказания и ограничения</label><textarea class="inp" rows="2" placeholder="давление, температура воды, аллергии"></textarea></div>
+    <div style="font-size:12px;color:var(--mut)">После сохранения система разложит процедуры по свободным слотам кабинетов и покажет гостю в его кабинете.</div>`,
+    ()=>toast('Курс назначен и поставлен в расписание'),'Назначить курс');
+}
+
+function cardModal(fio){
+  modal('Карта гостя · '+fio,`
+    <div class="list" style="margin:-16px -16px 0">
+      <div class="it"><div class="ic">${ic('doc')}</div><div class="tx"><b>Первичный осмотр 26.08</b><span>Жалобы: тяжесть после еды, изжога. Назначен стол №1.</span></div></div>
+      <div class="it"><div class="ic">${ic('doc')}</div><div class="tx"><b>Промежуточный осмотр 29.08</b><span>Жалобы уменьшились, курс без изменений</span></div></div>
+      <div class="it"><div class="ic r">${ic('warn')}</div><div class="tx"><b>Ограничения</b><span>Гипертония 1 ст. — ванна не выше 38 °C. Непереносимость лактозы.</span></div></div>
+      <div class="it"><div class="ic g">${ic('proc')}</div><div class="tx"><b>Выполнено процедур</b><span>27 из 70 по курсу</span></div></div>
+      <div class="it"><div class="ic">${ic('drop')}</div><div class="tx"><b>Приём минводы</b><span>200 мл × 3 раза, за 30 мин до еды</span></div></div>
+    </div>`,()=>toast('Запись в карту добавлена'),'Добавить запись');
+}
+
+function procModal(g,p,t){
+  modal('Процедура '+t,`
+    <div class="list" style="margin:-16px -16px 12px">
+      <div class="it"><div class="ic">${ic('usr')}</div><div class="tx"><b>${g}</b><span>${p}</span></div></div>
+      <div class="it"><div class="ic">${ic('clock')}</div><div class="tx"><b>${t}</b><span>Длительность 20 минут</span></div></div>
+    </div>
+    <div class="field"><label>Отметка</label><select class="inp"><option>Выполнено</option><option>Гость не пришёл</option><option>Перенести</option><option>Отменено врачом</option></select></div>
+    <div class="field"><label>Комментарий</label><textarea class="inp" rows="2" placeholder="реакция гостя, параметры процедуры"></textarea></div>`,
+    ()=>toast('Отметка сохранена, врач видит динамику'),'Отметить');
+}
+
+function leadModal(){
+  modal('Новый лид',`
+    <div class="field"><label>Имя</label><input class="inp" placeholder="Как обращаться"></div>
+    <div class="f2"><div class="field"><label>Телефон</label><input class="inp" placeholder="+7 ___ ___ __ __"></div>
+    <div class="field"><label>Канал</label><select class="inp"><option>Instagram</option><option>WhatsApp</option><option>Сайт</option><option>Звонок</option><option>TikTok</option><option>Агент, Узбекистан</option></select></div></div>
+    <div class="field"><label>Интерес</label><select class="inp">${PROGRAMS.map(p=>`<option>${p.t}</option>`).join('')}<option>Только проживание</option><option>Корпоратив, конференц-зал</option></select></div>
+    <div class="f2"><div class="field"><label>Планируемые даты</label><input class="inp" type="date"></div>
+    <div class="field"><label>Гостей</label><input class="inp" value="2"></div></div>
+    <div class="field"><label>Комментарий</label><textarea class="inp" rows="2" placeholder="что спрашивал, на что обратить внимание"></textarea></div>`,
+    ()=>toast('Лид добавлен в воронку'),'Добавить');
+}
+
+function stockModal(){
+  modal('Приход продуктов',`
+    <div class="field"><label>Продукт</label><select class="inp">${STOCK.map(s=>`<option>${s.n}</option>`).join('')}</select></div>
+    <div class="f2"><div class="field"><label>Количество</label><input class="inp" placeholder="40"></div>
+    <div class="field"><label>Цена за единицу, ₸</label><input class="inp" placeholder="3200"></div></div>
+    <div class="f2"><div class="field"><label>Поставщик</label><select class="inp"><option>ТОО «Сарыагаш Азық»</option><option>КХ «Достык»</option><option>Рынок Сарыагаш</option><option>ИП Абдуллаев</option></select></div>
+    <div class="field"><label>Срок годности</label><input class="inp" type="date"></div></div>
+    <div class="drop" onclick="toast('Накладная загружена')">${ic('dl')} Загрузить накладную</div>`,
+    ()=>toast('Приход оприходован на склад кухни'),'Оприходовать');
+}
+
+function staffModal(){
+  modal('Новый сотрудник',`
+    <div class="field"><label>ФИО</label><input class="inp" placeholder="Фамилия Имя"></div>
+    <div class="f2"><div class="field"><label>Должность</label><input class="inp" placeholder="Медсестра"></div>
+    <div class="field"><label>Телефон</label><input class="inp" placeholder="+7 ___ ___ __ __"></div></div>
+    <div class="field"><label>Роль в системе</label><select class="inp"><option>Руководство</option><option>Служба размещения</option><option>Врач</option><option>Процедурный кабинет</option><option>Отдел продаж</option><option>Кухня</option><option>Хозслужба</option></select></div>
+    <div style="font-size:12px;color:var(--mut)">Роль определяет, какие разделы увидит сотрудник. Врач не видит кассу, кухня не видит медкарты.</div>`,
+    ()=>toast('Сотрудник добавлен, доступ отправлен по SMS'),'Добавить');
+}
+
+render();
+</script>
+</body>
+</html>
