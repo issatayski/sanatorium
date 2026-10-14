@@ -3,31 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Система управления санаторием — Bibi Rayhan</title>
+<title>Система управления санаторием — Sanatorium</title>
 
 <!-- ====== ПРЕВЬЮ ССЫЛКИ (WhatsApp, Telegram, Facebook, LinkedIn) ======
-     Адрес страницы: https://issatayski.github.io/bibiraykhan/
-     Файл og-preview.png (1200x630) кладём в корень репозитория bibiraykhan, рядом с index.html.
+     Адрес страницы: https://issatayski.github.io/sanatorium/
+     Файл og-preview.png (1200x630) кладём в корень репозитория sanatorium, рядом с index.html.
      Проверка превью: developers.facebook.com/tools/debug/ -->
 <meta name="description" content="Бронирование, лечение, процедуры, питание, CRM и кабинет гостя — единая система санатория.">
 <meta name="theme-color" content="#13322e">
-<link rel="canonical" href="https://issatayski.github.io/bibiraykhan/">
+<link rel="canonical" href="https://issatayski.github.io/sanatorium/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Bibi Rayhan — система управления">
+<meta property="og:site_name" content="Sanatorium — система управления">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:url" content="https://issatayski.github.io/bibiraykhan/">
-<meta property="og:title" content="Система управления санаторием — Bibi Rayhan">
+<meta property="og:url" content="https://issatayski.github.io/sanatorium/">
+<meta property="og:title" content="Система управления санаторием — Sanatorium">
 <meta property="og:description" content="Бронирование, лечение, процедуры, питание, CRM и кабинет гостя — единая система санатория.">
-<meta property="og:image" content="https://issatayski.github.io/bibiraykhan/og-preview.png">
-<meta property="og:image:secure_url" content="https://issatayski.github.io/bibiraykhan/og-preview.png">
+<meta property="og:image" content="https://issatayski.github.io/sanatorium/og-preview.png">
+<meta property="og:image:secure_url" content="https://issatayski.github.io/sanatorium/og-preview.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Система управления санаторием Bibi Rayhan">
+<meta property="og:image:alt" content="Система управления санаторием Sanatorium">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Система управления санаторием — Bibi Rayhan">
+<meta name="twitter:title" content="Система управления санаторием — Sanatorium">
 <meta name="twitter:description" content="Бронирование, лечение, процедуры, питание, CRM и кабинет гостя — единая система санатория.">
-<meta name="twitter:image" content="https://issatayski.github.io/bibiraykhan/og-preview.png">
+<meta name="twitter:image" content="https://issatayski.github.io/sanatorium/og-preview.png">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c9a227'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='24' font-weight='bold' fill='%23fff' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
 <style>
@@ -285,7 +285,7 @@ select.inp{cursor:pointer}
 <aside class="sb">
   <div class="logo">
     <div class="logo-mark">BR</div>
-    <div><b>Bibi Rayhan</b><span>Medical Resort &amp; Spa · Сарыагаш</span></div>
+    <div><b>Sanatorium</b><span>Medical Resort &amp; Spa · Сарыагаш</span></div>
   </div>
   <nav id="sbnav"></nav>
   <div class="who" id="sbwho"></div>
@@ -512,7 +512,7 @@ const STOCK=[
 const SRC=[
   {n:'Instagram',lead:64,deal:19,rev:5320000,cost:420000},
   {n:'WhatsApp (прямые)',lead:41,deal:17,rev:4780000,cost:0},
-  {n:'Сайт bibirayhan.kz',lead:28,deal:9,rev:2640000,cost:180000},
+  {n:'Сайт sanatorium.kz',lead:28,deal:9,rev:2640000,cost:180000},
   {n:'Агенты Узбекистан',lead:22,deal:11,rev:3410000,cost:511500},
   {n:'Повторные и рекомендации',lead:19,deal:14,rev:4120000,cost:0},
   {n:'TikTok',lead:17,deal:3,rev:820000,cost:140000}
@@ -918,7 +918,7 @@ ${LEADS.map(c=>`<div class="st"><h4>${c.st}<span>${c.items.length}</span></h4>
 </div></div></div>`;
 
 P.web=()=>`
-${hint('Заявки и оплаты приходят с сайта bibirayhan.kz. Оплаченная бронь сразу занимает номер в шахматке.')}
+${hint('Заявки и оплаты приходят с сайта sanatorium.kz. Оплаченная бронь сразу занимает номер в шахматке.')}
 <div class="kpis">
   ${kpi('Заявок за неделю','28','+9 к прошлой','g','web')}
   ${kpi('Оплачено онлайн','11','2 640 000 ₸','','card')}
@@ -1247,7 +1247,7 @@ const SUBS={dash:'Сегодня, '+DATE,shah:'7 дней · 10 номеров',
   recep:'7 приёмов · 2 первичных',cards:'Медицинские карты гостей',assign:'Конструктор курса лечения',
   progA:'6 профильных направлений',sched:'Кабинеты и слоты на день',cab:'План и факт по кабинетам',
   doneN:'Журнал процедур смены',waterN:'Приём воды по назначению',leads:'Все каналы в одной воронке',
-  task:'Мои задачи на сегодня',web:'bibirayhan.kz · онлайн-бронь',base:'Повторные заезды и рассылки',
+  task:'Мои задачи на сегодня',web:'sanatorium.kz · онлайн-бронь',base:'Повторные заезды и рассылки',
   src:'Отдача каналов, август',menu:'Кухня · '+DATE,diet:'Назначены врачом',stock:'Остатки и минимумы',
   calc:'Себестоимость питания',rep:'Загрузка, ADR, RevPAR',usr:'Роли и права доступа',
   set:'Номера, тарифы, процедуры',my:'ЖКТ · день 4 из 10',mysch:'29 августа',mymenu:'Стол №1',
